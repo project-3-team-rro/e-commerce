@@ -18,13 +18,13 @@ const routes: Routes = [
 ];
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     MerchandiseListComponent,
     MerchandiseDetailsComponent
+
   ],
   imports: [
     HttpModule,
