@@ -51,5 +51,12 @@ export class AppComponent {
   );
   }
 
+  toggle($scope) {
+    $scope.myvalue = false;
+    $scope.showAlert = function() {
+      $scope.myvalue = true;
+    };
+  }
+
 
 }
