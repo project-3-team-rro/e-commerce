@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// tslint:disable-next-line:import-blacklist
-// import { Observable } from 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
-import {AuthService} from './services/auth.service';
+import { AuthService } from './services/auth.service';
+import { MerchandiseService } from './services/merchandise.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +10,10 @@ import {AuthService} from './services/auth.service';
 })
 export class AppComponent {
 
-  constructor(private myService: AuthService){}
+  constructor(private authService: AuthService,
+    private merchandiseService: MerchandiseService) { }
 
-  formInfo: any = {username: '', password: ''};
+  formInfo: any = { username: '', password: '' };
 
   user: any;
 
@@ -23,7 +23,7 @@ export class AppComponent {
 
 
   login() {
-    this.myService.login(this.formInfo)
+    this.authService.login(this.formInfo)
       .subscribe(
         (user) => this.user = user,
         (err) => this.error = err
@@ -31,9 +31,10 @@ export class AppComponent {
   }
 
   signup() {
-    this.myService.signup(this.formInfo)
+    this.authService.signup(this.formInfo)
       .subscribe(
-        (user) => {this.user = user;
+        (user) => {
+          this.user = user;
           console.log(this.user);
         },
         (err) => this.error = err
@@ -42,13 +43,14 @@ export class AppComponent {
 
 
   logout() {
-    this.myService.logout()
-    .subscribe(
-    () => {this.user = null;
-      this.formInfo = {};
-    },
-    (err) => this.error = err
-  );
+    this.authService.logout()
+      .subscribe(
+        () => {
+          this.user = null;
+          this.formInfo = {};
+        },
+        (err) => this.error = err
+      );
   }
 
   toggle($scope) {

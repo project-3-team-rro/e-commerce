@@ -1,0 +1,11 @@
+<p>
+  merchandise-list works!
+</p>
+
+
+<div *ngFor="let item of allTheMerchandise">
+  <a href="merchandise/{{item._id}}">
+    {{item.name}}
+    <img [src]="item.picture" alt="">
+  </a>
+</div>
