@@ -1,6 +1,16 @@
-<div>
+<div class="left">
   <h1>{{theMerchandise.name}}</h1>
-  <img [src]="theMerchandise.picture" alt="">
-  <h2>${{theMerchandise.price}}</h2>
+  <!-- <img [src]="theMerchandise.picture" alt=""> -->
+  <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
+  <h2>Price: ${{theMerchandise.price}}</h2>
   <h4>Category: {{theMerchandise.category}}</h4>
+</div>
+
+<div class="right">
+  <h2>Edit this item</h2>
+  <label>Name</label>
+  <input [(ngModel)]="theUpdate.name" type="text" name="title">
+  <br>
+
+  <button (click)="updateTheItem(theMerchandise._id)" type="button">Submit Changes</button>
 </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../services/auth.service';
 import { MerchandiseService } from '../services/merchandise.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MerchandiseDetailsComponent implements OnInit {
 
   theMerchandise: any = {};
+  theUpdate: any = {};
 
   constructor(private authService: AuthService,
     private merchandiseService: MerchandiseService,
@@ -23,6 +24,15 @@ export class MerchandiseDetailsComponent implements OnInit {
       .subscribe((res) => {
         this.theMerchandise = res;
       });
+  }
+
+  updateTheItem(idOfTask) {
+    this.merchandiseService.updateItem(idOfTask, this.theUpdate)
+      .subscribe(() => {
+        this.getTheItem(idOfTask);
+        this.theUpdate = {};
+      });
+
   }
 
   ngOnInit() {

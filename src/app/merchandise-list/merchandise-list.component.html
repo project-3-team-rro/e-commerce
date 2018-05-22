@@ -1,13 +1,13 @@
-<p>
-  merchandise-list works!
-</p>
+<app-search></app-search>
 
-
-<div *ngFor="let item of allTheMerchandise">
-  <a href="merchandise/{{item._id}}">
-    {{item.name}}
+<div class="merchandise-list-container" *ngFor="let item of allTheMerchandise">
+  <div class="merchandise-list">
+    <a [routerLink]="['/merchandise', item._id]">
+      {{item.name}}
+    </a>
     <img [src]="item.picture" alt="">
-  </a>
+    <button (click)=deleteItem(item._id)>Remove</button>
+  </div>
 </div>
 
 <!-- {{allTheMerchandise.name}} -->
