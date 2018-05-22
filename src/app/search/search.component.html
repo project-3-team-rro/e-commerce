@@ -1,5 +1,10 @@
 <h1>
   Search Products!
 </h1>
-<br>
-<input type="text" name="" id="">
+
+
+<input type="text" [(ngModel)]="search" (keyup)="filterMerchandise()">
+
+<div *ngFor="let merchandise of resultsArray">
+  {{merchandise.name}}
+</div>

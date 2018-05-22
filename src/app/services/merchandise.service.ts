@@ -24,4 +24,15 @@ export class MerchandiseService {
       .map((res) => res.json());
   }
 
+
+  deleteItem(id) {
+    return this.http.post(`http://localhost:3000/api/merchandise/delete/${id}`, {})
+      .map(res => res.json());
+  }
+
+  updateItem(id, updates) {
+    return this.http.post(`http://localhost:3000/api/merchandise/update/${id}`, updates)
+      .map(res => res.json());
+  }
+
 }
