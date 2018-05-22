@@ -12,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MerchandiseListComponent implements OnInit {
 
   allTheMerchandise: Array<any> = [];
+  newItem: any = { name: '', picture: '', price: '', new: '', quantity: 0 };
+  isFormShowing: Boolean = false;
 
   constructor(private merchandiseService: MerchandiseService, private authService: AuthService,
     private router: Router) { }
@@ -22,12 +24,29 @@ export class MerchandiseListComponent implements OnInit {
       this.allTheMerchandise = merchandise;
     });
   }
+
   deleteItem(id) {
     this.merchandiseService.deleteItem(id)
       .subscribe(() => {
         this.allMerchandise();
       });
   }
+
+  addNewItem() {
+    this.merchandiseService.createItem(this.newItem).subscribe(foo => {
+      this.newItem = {};
+      this.allMerchandise();
+    });
+    this.isFormShowing = false;
+  }
+
+
+  toggleForm() {
+    this.isFormShowing = !this.isFormShowing;
+  }
+
+
+
   ngOnInit() {
     this.allMerchandise();
   }
