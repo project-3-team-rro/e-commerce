@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MerchandiseListComponent implements OnInit {
 
   allTheMerchandise: Array<any> = [];
-  newItem: any = { name: '', picture: '', price: '', new: '', quantity: 0 };
+  newItem: any = { name: '', picture: '', price: '', new: '', quantity: 0, description: '' };
   isFormShowing: Boolean = false;
 
   constructor(private merchandiseService: MerchandiseService, private authService: AuthService,
