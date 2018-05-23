@@ -1,9 +1,17 @@
+<div *ngIf="user">
+  Welcome, {{ user.username }}!
+  <a [routerLink]="['/user/', user._id, 'cart']">Shopping cart</a>
+</div>
+
 <div class="left">
   <h1>{{theMerchandise.name}}</h1>
   <!-- <img [src]="theMerchandise.picture" alt=""> -->
   <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
-  <h2>Price: ${{theMerchandise.price}}</h2>
+  <h2>Price: {{getCurrency()}}{{theMerchandise.price}}</h2>
   <h4>Category: {{theMerchandise.category}}</h4>
+  <button class="add-to-cart" (click)="addToCart(theMerchandise, user)">
+    Add to cart
+  </button>
 </div>
 
 <div class="right">

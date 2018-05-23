@@ -15,6 +15,9 @@ export class MerchandiseListComponent implements OnInit {
 
   constructor(private merchandiseService: MerchandiseService, private authService: AuthService,
     private router: Router) { }
+    ngOnInit() {
+      this.allMerchandise();
+    }
 
   allMerchandise(): any {
     // console.log('all merchandise');
@@ -28,8 +31,6 @@ export class MerchandiseListComponent implements OnInit {
         this.allMerchandise();
       });
   }
-  ngOnInit() {
-    this.allMerchandise();
-  }
+  
 
 }
