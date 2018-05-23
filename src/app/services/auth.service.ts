@@ -34,7 +34,9 @@ export class AuthService {
 
   isLoggedIn() {
     return this.http.get(`http://localhost:3000/api/loggedin`)
-      .map(res => res.json())
+      .map(res => {
+        console.log("========",res.json())
+        })
       .catch(this.handleError);
   }
 
