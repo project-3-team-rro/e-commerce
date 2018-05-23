@@ -32,6 +32,8 @@ export class AppComponent {
 
   title = 'app';
 
+  privateData: any = 'Hey dude';
+
 
   login() {
     this.authService.login(this.formInfo)
@@ -68,9 +70,17 @@ export class AppComponent {
       );
   }
 
+  getPrivateData() {
+    this.authService.getPrivateData()
+      .subscribe(
+        (data) => this.privateData = data,
+        (err) => this.error = err
+      );
+  }
+
   toggle($scope) {
     $scope.myvalue = false;
-    $scope.showAlert = function() {
+    $scope.showAlert = function () {
       $scope.myvalue = true;
     };
   }

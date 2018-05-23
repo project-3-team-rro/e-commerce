@@ -11,6 +11,8 @@ import { MerchandiseService } from './services/merchandise.service';
 import { SearchComponent } from './search/search.component';
 import { MerchandiseListComponent } from './merchandise-list/merchandise-list.component';
 import { MerchandiseDetailsComponent } from './merchandise-details/merchandise-details.component';
+import { EditComponent } from './edit/edit.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -42,8 +44,8 @@ const routes : Routes = [
 <<<<<<< HEAD
     SearchComponent,
     MerchandiseListComponent,
-    MerchandiseDetailsComponent
-
+    MerchandiseDetailsComponent,
+    EditComponent,
   ],
   imports: [
     HttpModule,

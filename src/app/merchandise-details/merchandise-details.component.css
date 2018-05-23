@@ -2,10 +2,23 @@ img {
   width: 300px;
 }
 
-.left {
-  float: left;
+.actual-item {
+  background: white;
 }
 
-.right {
-  float: right;
+.merchandise-information {
+  width: 50%;
+}
+
+.edit {
+  flex-direction: column;
+  display: flex;
+  margin: 5%;
+}
+
+.merchandise-details-container {
+  background: rgb(173, 187, 202);
+  display: flex;
+  justify-content: space-around;
+  /* background-size: cover; */
 }

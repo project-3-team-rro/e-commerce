@@ -11,9 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./merchandise-details.component.css']
 })
 export class MerchandiseDetailsComponent implements OnInit {
-
   theMerchandise: any = {};
   theUpdate: any = {};
+  isFormShowing: Boolean = false;
 
   constructor(private authService: AuthService,
     private merchandiseService: MerchandiseService,
@@ -32,7 +32,11 @@ export class MerchandiseDetailsComponent implements OnInit {
         this.getTheItem(idOfTask);
         this.theUpdate = {};
       });
+    this.isFormShowing = false;
+  }
 
+  toggleForm() {
+    this.isFormShowing = !this.isFormShowing;
   }
 
   ngOnInit() {

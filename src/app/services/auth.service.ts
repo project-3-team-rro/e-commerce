@@ -40,4 +40,9 @@ export class AuthService {
       .catch(this.handleError);
   }
 
+  getPrivateData() {
+    return this.http.get(`http://localhost:3000/api/private`)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 }

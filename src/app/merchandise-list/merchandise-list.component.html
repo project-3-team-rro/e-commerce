@@ -1,14 +1,39 @@
-<app-search></app-search>
-
-<div class="merchandise-list-container" *ngFor="let item of allTheMerchandise">
-  <div class="merchandise-list">
-    <a [routerLink]="['/merchandise', item._id]">
-      {{item.name}}
-    </a>
-    <img [src]="item.picture" alt="">
-    <button (click)=deleteItem(item._id)>Remove</button>
+<div class="merchandise-list-container">
+  <div *ngFor="let item of allTheMerchandise" class="card card-background" style="width: 18rem;">
+    <div class="imageBox">
+      <img class="card-img-top" [src]='item.picture' alt="Card image cap">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">${{item.price}}</p>
+      <a [routerLink]="['/merchandise', item._id]">
+        More Information about {{item.name}}
+      </a>
+      <hr>
+      <button (click)="deleteItem(item._id)">Delete</button>
+      {{item.new}}
+    </div>
   </div>
 </div>
+<button (click)="toggleForm()">
+  <h1> CREATE</h1>
+</button>
 
-<!-- {{allTheMerchandise.name}} -->
+<form *ngIf="isFormShowing">
+  <label>Name</label>
+  <input [(ngModel)]=newItem.name type="text" name="name">
 
+  <label>Picture</label>
+  <input [(ngModel)]=newItem.picture type="text" name="picture">
+
+  <label>Price</label>
+  <input [(ngModel)]=newItem.price type="text" name="price">
+
+  <label>New/Used?</label>
+  <input [(ngModel)]=newItem.new type="text" name="new">
+
+  <label>Quantity</label>
+  <input [(ngModel)]=newItem.quantity type="text" name="quantity">
+
+  <button type="button" (click)="addNewItem()">Submit</button>
+</form>

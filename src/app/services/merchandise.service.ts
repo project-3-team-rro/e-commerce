@@ -35,4 +35,9 @@ export class MerchandiseService {
       .map(res => res.json());
   }
 
+  createItem(wholeObject) {
+    return this.http.post(`http://localhost:3000/api/merchandise/create`, wholeObject)
+      .map(res => res.json());
+  }
+
 }
