@@ -10,8 +10,6 @@ import { MerchandiseService } from './services/merchandise.service';
 import { SearchComponent } from './search/search.component';
 import { MerchandiseListComponent } from './merchandise-list/merchandise-list.component';
 import { MerchandiseDetailsComponent } from './merchandise-details/merchandise-details.component';
-import { DeleteComponent } from './delete/delete.component';
-import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 
 
@@ -28,8 +26,6 @@ const routes: Routes = [
     SearchComponent,
     MerchandiseListComponent,
     MerchandiseDetailsComponent,
-    DeleteComponent,
-    CreateComponent,
     EditComponent,
   ],
   imports: [

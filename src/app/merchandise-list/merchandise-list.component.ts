@@ -25,12 +25,12 @@ export class MerchandiseListComponent implements OnInit {
     });
   }
 
-  // deleteItem(id) {
-  //   this.merchandiseService.deleteItem(id)
-  //     .subscribe(() => {
-  //       this.allMerchandise();
-  //     });
-  // }
+  deleteItem(id) {
+    this.merchandiseService.deleteItem(id)
+      .subscribe(() => {
+        this.allMerchandise();
+      });
+  }
 
   addNewItem() {
     this.merchandiseService.createItem(this.newItem).subscribe(foo => {
