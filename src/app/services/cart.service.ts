@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Merchandise} from '../classes/merchandise';
-import {BehaviorSubject, Observable, Subject, Subscriber} from 'rxjs';
-import {of} from 'rxjs/observable/of';
+import { Injectable } from '@angular/core';
+import { Merchandise } from '../classes/merchandise';
+import { BehaviorSubject, Observable, Subject, Subscriber } from 'rxjs';
+import { of } from 'rxjs/observable/of';
 
 import { Http } from '@angular/http';
 
@@ -14,19 +14,19 @@ export class CartService {
     // this.itemsInCartSubject.subscribe(_ => this.itemsInCart = _);
   }
 
-  public addToCart(product, user ) {
+  public addToCart(product, user) {
     const ids = { prodId: product._id, userId: user._id };
     console.log('ids in the service: ', ids);
     return this.myHttp.post(`http://localhost:3000/api/cart`, ids)
-    .toPromise()
-    .then(res => res.json());
+      .toPromise()
+      .then(res => res.json());
     // this.itemsInCartSubject.next([...this.itemsInCart, item]);
   }
 
   getTheCartContent(userId) {
     return this.myHttp.get(`http://localhost:3000/api/user/${userId}/cart`)
-    .toPromise()
-    .then( res => res.json());
+      .toPromise()
+      .then(res => res.json());
   }
 
   public removeFromCart(item: Merchandise) {

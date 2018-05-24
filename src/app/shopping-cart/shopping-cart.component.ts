@@ -12,21 +12,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ShoppingCartComponent implements OnInit {
   allTheProducts: Array<any> = [];
   user: any;
-  constructor( private myCartService: CartService, 
+  constructor(private myCartService: CartService,
     private myAuth: AuthService,
-  private myActivated: ActivatedRoute,
-private myRoute: Router ) { }
+    private myActivated: ActivatedRoute,
+    private myRoute: Router) { }
 
   ngOnInit() {
     this.myAuth.isLoggedIn()
-    .toPromise()
-    .then( res => {
-      this.user = JSON.parse(this.myAuth.currentUser._body);
-    } )
-    .catch( err => {
-      console.log('Error with user in shopping cart: ', err);
-      this.myRoute.navigate(['/login']);
-    });
+      .toPromise()
+      .then(res => {
+        this.user = JSON.parse(this.myAuth.currentUser._body);
+      })
+      .catch(err => {
+        console.log('Error with user in shopping cart: ', err);
+        this.myRoute.navigate(['/login']);
+      });
 
     this.myActivated.params.subscribe((params) => {
       this.showTheCartThings(params['id']);
@@ -35,13 +35,13 @@ private myRoute: Router ) { }
 
   showTheCartThings(userId) {
     this.myCartService.getTheCartContent(userId)
-    .then( res => {
-      console.log('whatttttt: ========>  ', res);
-      this.allTheProducts = res;
-    } )
-    .catch( err => {
-      console.log('error while getting the cart content: ', err);
-    } );
+      .then(res => {
+        console.log('whatttttt: ========>  ', res);
+        this.allTheProducts = res;
+      })
+      .catch(err => {
+        console.log('error while getting the cart content: ', err);
+      });
 
   }
 
