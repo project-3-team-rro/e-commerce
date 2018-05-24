@@ -39,7 +39,7 @@ export class AuthService {
     return this.http.get(`http://localhost:3000/api/loggedin`, { withCredentials: true })
       .map(res => {
         this.currentUser = res;
-        console.log('user in the service: ', res)
+        console.log('user in the service: ', res);
         res.json();
       })
       .catch(this.handleError);
