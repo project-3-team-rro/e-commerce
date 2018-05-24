@@ -26,6 +26,7 @@ export class AuthService {
     return this.http.post(`http://localhost:3000/api/login`, user, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
+
   }
 
   logout() {
@@ -44,4 +45,9 @@ export class AuthService {
       .catch(this.handleError);
   }
 
+  getPrivateData() {
+    return this.http.get(`http://localhost:3000/api/private`)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 }

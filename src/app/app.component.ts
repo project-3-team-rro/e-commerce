@@ -13,15 +13,20 @@ export class AppComponent {
   constructor(private authService: AuthService,
     private merchandiseService: MerchandiseService) { }
 
-  formInfo: any = { username: '', password: '' };
+  formInfo: any = { username: '', password: '', role: '' };
 
   user: any;
+
+  role: any;
 
   error: any;
 
   title = 'app';
 
+  form: Boolean = true;
 
+
+<<<<<<< HEAD
   // login() {
   //   this.authService.login(this.formInfo)
   //     .subscribe(
@@ -40,6 +45,27 @@ export class AppComponent {
   //       (err) => this.error = err
   //     );
   // }
+=======
+  login() {
+    this.authService.login(this.formInfo)
+      .subscribe(
+        (user) => this.user = user,
+        (err) => this.error = err,
+    );
+    this.formInfo = {};
+  }
+
+  signup() {
+    this.authService.signup(this.formInfo)
+      .subscribe(
+        (user) => {
+          this.user = user;
+          // console.log(this.user);
+        },
+        (err) => this.error = err);
+    this.formInfo = {};
+  }
+>>>>>>> master
 
 
   logout() {
@@ -51,14 +77,27 @@ export class AppComponent {
         },
         (err) => this.error = err
       );
+    this.form = true;
   }
+
+  // getPrivateData() {
+  //   this.authService.getPrivateData()
+  //     .subscribe(
+  //       (data) => this.privateData = data,
+  //       (err) => this.error = err
+  //     );
+  // }
 
   toggle($scope) {
     $scope.myvalue = false;
-    $scope.showAlert = function() {
+    $scope.showAlert = function () {
       $scope.myvalue = true;
     };
   }
-
-
+  showForm() {
+    this.form = !this.form;
+  }
 }
+
+
+

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div *ngIf="user">
   Welcome, {{ user.username }}!
   <a [routerLink]="['/user/', user._id, 'cart']">Shopping cart</a>
@@ -22,3 +23,55 @@
 
   <button (click)="updateTheItem(theMerchandise._id)" type="button">Submit Changes</button>
 </div>
+=======
+<div class="merchandise-details-container">
+  <div class="actual-item">
+    <h1>{{theMerchandise.name}}</h1>
+    <!-- <img [src]="theMerchandise.picture" alt=""> -->
+    <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
+  </div>
+
+  <div class="merchandise-information">
+    <h2>${{theMerchandise.price}}</h2>
+    <h4> category//{{theMerchandise.category}}</h4>
+    <h4> new or used?//{{theMerchandise.new}}</h4>
+    <h4> Description//{{theMerchandise.description}}</h4>
+    <h4> seller// {{theMerchandise.seller}}</h4>
+    <h4> Quantity//{{theMerchandise.quantity}}</h4>
+  </div>
+
+  <div>
+    <button (click)="toggleForm()">
+      <h2>Edit this item</h2>
+    </button>
+    <div *ngIf="isFormShowing" class="edit">
+      <label>Name</label>
+      <input [(ngModel)]="theUpdate.name" type="text" name="name">
+
+      <label>Price</label>
+      <input [(ngModel)]="theUpdate.price" type="text" name="price">
+
+      <label>Description</label>
+      <input [(ngModel)]="theUpdate.description" type="text" name="description">
+
+      <label>Category</label>
+      <select [(ngModel)]='theUpdate.category'>
+        <option value="Electronics ">Electronics</option>
+        <option value="Home Furnishing ">Home Furnishing</option>
+        <option value="Appliances ">Appliances</option>
+        <option value="Handmade ">Handmade</option>
+      </select>
+
+      <label> New or Used? </label>
+      <select [(ngModel)]="theUpdate.new ">
+        <option value="New ">New</option>
+        <option value="Used ">Used</option>
+      </select>
+
+      <label>Quantity</label>
+      <input [(ngModel)]="theUpdate.quantity " type="text " name="quantity ">
+
+      <button (click)="updateTheItem(theMerchandise._id) " type="button ">Submit Changes</button>
+    </div>
+  </div>
+>>>>>>> master

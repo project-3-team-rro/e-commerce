@@ -1,17 +1,29 @@
 img {
-  width: 200px;
-  /* height: 200px */
+  width: 30%;
+  /* height: 25px; */
 }
 
 .merchandise-list-container {
   display: flex;
-  /* justify-content: flex-end; */
-  width: 10%;
-  /* flex-direction: row; */
-  flex: 0 1 auto;
   flex-wrap: wrap;
-  /* flex-grow: 1 2 1; */
+  justify-content: center;
+  /* align-items: baseline; */
+  background: rgb(173, 187, 202);
 }
 
-/* .merchandise-list {
-} */
+.card-background {
+  margin: 5px;
+}
+
+.imageBox {
+  height: 175px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-form {
+  /* display: flex; */
+  display: grid;
+}

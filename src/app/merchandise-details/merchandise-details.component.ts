@@ -13,11 +13,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./merchandise-details.component.css']
 })
 export class MerchandiseDetailsComponent implements OnInit {
+<<<<<<< HEAD
   public merchandise: Merchandise = {};
   theMerchandise: any = {};
   theUpdate: any = {};
   // this is the user that we gonna use in this component 
   user: any;
+=======
+  theMerchandise: any = {};
+  theUpdate: any = {};
+  isFormShowing: Boolean = false;
+>>>>>>> master
 
   constructor(private authService: AuthService,
     private cartService: CartService,
@@ -42,7 +48,11 @@ export class MerchandiseDetailsComponent implements OnInit {
         this.getTheItem(idOfTask);
         this.theUpdate = {};
       });
+    this.isFormShowing = false;
+  }
 
+  toggleForm() {
+    this.isFormShowing = !this.isFormShowing;
   }
 
   ngOnInit() {
