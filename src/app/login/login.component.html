@@ -1,34 +1,38 @@
 <div class="container">
-  <h1>Sign In</h1>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+  <div *ngIf="form">
+    <h1>Log In</h1>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+      </div>
+      <input type="text" [(ngModel)]="formInfo.username" name="username" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
     </div>
-    <input type="text" [(ngModel)]="formInfo.username" name="username" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-  </div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+      </div>
+      <input type="password" [(ngModel)]="formInfo.password" name="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
     </div>
-    <input type="password" [(ngModel)]="formInfo.password" name="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-  </div>
-  <button type="button" class="btn btn-primary" (click)="login()">Sign In</button>
-  <br>
-  <br>
-  <div>
-    Not a user?
-    <a [routerLink]="['/signup']"> Signup </a>
+    <button type="button" class="btn btn-primary" (click)="login()">Sign In</button>
+    <br>
+    <br>
+    <div>
+      Not a user?
+      <a [routerLink]="['/signup']"> Signup </a>
+    </div>
   </div>
 
   <div *ngIf="user">
     <h2> Welcome, {{ user.username }}!! </h2>
-    <p> Here's the user object </p>
-    <pre> {{ user | json }} </pre>
-
-    <p *ngIf="privateData"> Here's some data fetched from a protected API </p>
-    <pre> {{ privateData | json }} </pre>
 
     <button (click)="logout()"> logout </button>
     <button (click)="getPrivateData()"> Get private data </button>
+
+    <app-user-profile></app-user-profile>
+
+    <!-- <button>
+      <a [routerLink]="['/profile']"> Profile </a>
+    </button> -->
+
   </div>
 </div>

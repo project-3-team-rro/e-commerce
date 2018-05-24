@@ -15,28 +15,28 @@ export class MerchandiseService {
   }
 
   getAllMerchandise() {
-    return this.http.get('http://localhost:3000/api/merchandise')
+    return this.http.get('http://localhost:3000/api/merchandise', { withCredentials: true })
       .map((res) => res.json());
   }
 
   getMerchandiseDetails(id) {
-    return this.http.get(`http://localhost:3000/api/merchandise/${id}`)
+    return this.http.get(`http://localhost:3000/api/merchandise/${id}`, { withCredentials: true })
       .map((res) => res.json());
   }
 
 
   deleteItem(id) {
-    return this.http.post(`http://localhost:3000/api/merchandise/delete/${id}`, {})
+    return this.http.post(`http://localhost:3000/api/merchandise/delete/${id}`, {}, { withCredentials: true })
       .map(res => res.json());
   }
 
   updateItem(id, updates) {
-    return this.http.post(`http://localhost:3000/api/merchandise/update/${id}`, updates)
+    return this.http.post(`http://localhost:3000/api/merchandise/update/${id}`, updates, { withCredentials: true })
       .map(res => res.json());
   }
 
   createItem(wholeObject) {
-    return this.http.post(`http://localhost:3000/api/merchandise/create`, wholeObject)
+    return this.http.post(`http://localhost:3000/api/merchandise/create`, wholeObject, { withCredentials: true })
       .map(res => res.json());
   }
 
