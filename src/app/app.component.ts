@@ -27,6 +27,26 @@ export class AppComponent {
   form: Boolean = true;
 
 
+<<<<<<< HEAD
+  // login() {
+  //   this.authService.login(this.formInfo)
+  //     .subscribe(
+  //       (user) => this.user = user,
+  //       (err) => this.error = err
+  //     );
+  // }
+
+  // signup() {
+  //   this.authService.signup(this.formInfo)
+  //     .subscribe(
+  //       (user) => {
+  //         this.user = user;
+  //         console.log(this.user);
+  //       },
+  //       (err) => this.error = err
+  //     );
+  // }
+=======
   login() {
     this.authService.login(this.formInfo)
       .subscribe(
@@ -46,6 +66,7 @@ export class AppComponent {
         (err) => this.error = err);
     this.formInfo = {};
   }
+>>>>>>> master
 
 
   logout() {

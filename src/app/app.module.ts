@@ -6,18 +6,27 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
+import { CartService } from './services/cart.service';
 import { MerchandiseService } from './services/merchandise.service';
 import { SearchComponent } from './search/search.component';
 import { MerchandiseListComponent } from './merchandise-list/merchandise-list.component';
 import { MerchandiseDetailsComponent } from './merchandise-details/merchandise-details.component';
-import { EditComponent } from './edit/edit.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+
 import { UserProfileComponent } from './user-profile/user-profile.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'merchandise', component: MerchandiseListComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'merchandise/:id', component: MerchandiseDetailsComponent },
+  { path: 'user/:id/cart', component: ShoppingCartComponent },
   { path: 'profile', component: UserProfileComponent }
+
 ];
 
 
@@ -27,8 +36,11 @@ const routes: Routes = [
     SearchComponent,
     MerchandiseListComponent,
     MerchandiseDetailsComponent,
-    EditComponent,
+    ShoppingCartComponent,
+    SignupComponent,
+    LoginComponent,
     UserProfileComponent
+
   ],
   imports: [
     HttpModule,
@@ -36,7 +48,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [MerchandiseService, AuthService],
+  providers: [MerchandiseService, AuthService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,15 @@
+<div *ngIf="user" >
+  <p> This cart belongs to: {{ user.username }}</p>
+</div>
+
+
+
+<button (click) ="showTheCartThings(user._id)" >What's in the cart? </button>
+
+<div *ngIf="allTheProducts.length > 0">
+  <ul *ngFor="let oneProduct of allTheProducts">
+    <li>
+        {{ oneProduct.name }} ---- {{ oneProduct. seller }}
+    </li>
+  </ul>
+</div>

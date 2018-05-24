@@ -17,10 +17,18 @@ export class MerchandiseListComponent implements OnInit {
   newItem: any = { name: '', picture: '', price: '', new: '', quantity: 0, description: '' };
   isFormShowing: Boolean = false;
 
+<<<<<<< HEAD
+  constructor(private merchandiseService: MerchandiseService, private authService: AuthService,
+    private router: Router) { }
+    ngOnInit() {
+      this.allMerchandise();
+    }
+=======
   constructor(
     private merchandiseService: MerchandiseService, private authService: AuthService,
     private router: Router,
     private appComponent: AppComponent) { }
+>>>>>>> master
 
   allMerchandise(): any {
     // console.log('all merchandise');
@@ -35,6 +43,9 @@ export class MerchandiseListComponent implements OnInit {
         this.allMerchandise();
       });
   }
+<<<<<<< HEAD
+  
+=======
 
   addNewItem() {
     this.merchandiseService.createItem(this.newItem).subscribe(foo => {
@@ -55,5 +66,6 @@ export class MerchandiseListComponent implements OnInit {
     this.allMerchandise();
     this.user = this.appComponent.user;
   }
+>>>>>>> master
 
 }
