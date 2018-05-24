@@ -23,16 +23,7 @@ img {
   align-items: center;
 }
 
-/* .merchandise-list {
-  border: 2px solid red;
-  width: 30%;
-  height: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 30%; */
-
-/* flex: 0 1 auto; */
-
-/* flex-wrap: wrap;
-} */
+.create-form {
+  /* display: flex; */
+  display: grid;
+}
