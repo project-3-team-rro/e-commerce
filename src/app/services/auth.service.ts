@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.post(`http://localhost:3000/api/logout`, { withCredentials: true })
+    return this.http.delete(`http://localhost:3000/api/logout`, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -38,15 +38,21 @@ export class AuthService {
   isLoggedIn() {
     return this.http.get(`http://localhost:3000/api/loggedin`, { withCredentials: true })
       .map(res => {
-        this.currentUser = res;
+        this.currentUser = res.json();
         console.log('user in the service: ', res);
         res.json();
       })
       .catch(this.handleError);
   }
 
-  getPrivateData() {
-    return this.http.get(`http://localhost:3000/api/private`)
+  // getPrivateData() {
+  //   return this.http.get(`http://localhost:3000/api/private`)
+  //     .map(res => res.json())
+  //     .catch(this.handleError);
+  // }
+
+  getUser() {
+    return this.http.get(`http://localhost:3000/api/userInfo`, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }

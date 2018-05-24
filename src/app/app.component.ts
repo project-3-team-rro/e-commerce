@@ -11,8 +11,10 @@ import { MerchandiseService } from './services/merchandise.service';
 
 export class AppComponent {
 
-  constructor(private authService: AuthService,
-    private merchandiseService: MerchandiseService) { }
+  constructor(
+    private authService: AuthService,
+    private merchandiseService: MerchandiseService,
+  ) { }
 
   formInfo: any = { username: '', password: '', role: '' };
 
@@ -27,17 +29,17 @@ export class AppComponent {
   form: Boolean = true;
 
 
-  logout() {
-    this.authService.logout()
-      .subscribe(
-        () => {
-          this.user = null;
-          this.formInfo = {};
-        },
-        (err) => this.error = err
-      );
-    this.form = true;
-  }
+  // logout() {
+  //   this.authService.logout()
+  //     .subscribe(
+  //       () => {
+  //         this.user = null;
+  //         this.formInfo = {};
+  //       },
+  //       (err) => this.error = err
+  //     );
+  //   this.form = true;
+  // }
 
   // getPrivateData() {
   //   this.authService.getPrivateData()
@@ -54,7 +56,7 @@ export class AppComponent {
     };
   }
   showForm() {
-    this.form = !this.form;
+    // this.form = !this.form;
   }
 }
 

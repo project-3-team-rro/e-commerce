@@ -14,11 +14,22 @@ export class LoginComponent implements OnInit {
 
   error: any;
 
-  form: Boolean = true;
-
   constructor(
     private authService: AuthService,
     private router: Router) { }
+
+  test(): void {
+    this.authService.isLoggedIn()
+      .toPromise()
+      .then(() => {
+        this.formInfo = this.authService.currentUser;
+        // console.log(this.formInfo); ===== Works !
+      })
+      .catch(err => {
+        console.log(err);
+        this.router.navigate(['/login']);
+      });
+  }
 
   ngOnInit() {
   }
@@ -27,10 +38,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.formInfo)
       .subscribe(
         (user) => this.user = user,
-        (err) => this.error = err
-      );
-    this.form = false;
-    this.router.navigate(['/merchandise']);
+        (err) => this.error = err,
+    );
+    this.user = false;
+    this.test();
+    // this.router.navigate(['/merchandise']);
+    // console.log(this.user);
   }
 
   logout() {
@@ -39,10 +52,11 @@ export class LoginComponent implements OnInit {
         () => {
           this.user = null;
           this.formInfo = {};
+          this.router.navigate(['/login']);
         },
         (err) => this.error = err
       );
-    this.form = true;
+    this.test();
   }
 
 }

@@ -1,1 +1,12 @@
+<div *ngIf="user">
+  <h2> Welcome, {{ user.username }}!! </h2>
+</div>
+<div *ngIf="!user">
+  <p> Please
+    <a [routerLink]="['/signup']">Sign up</a>
+    or
+    <a [routerLink]="['/login']">Log In!</a>
+  </p>
+</div>
+
 <router-outlet></router-outlet>
