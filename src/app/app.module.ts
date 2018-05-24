@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
     ShoppingCartComponent,
     SignupComponent,
     LoginComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CommentsComponent
 
   ],
   imports: [
