@@ -18,6 +18,7 @@
 
 <!--  -->
 
+<!-- <div *ngIf="this.appComponent.user"> -->
 <button (click)="toggleForm() ">
   <h1> CREATE</h1>
 </button>
@@ -67,40 +68,5 @@
 
   <button type="button" (click)="addNewItem()">Submit</button>
 </form>
+<!-- </div> -->
 <!--  -->
-
-<!-- <div>
-
-
-  <div class="create-form ">
-    <form *ngIf="isFormShowing ">
-      <label>Name</label>
-      <input [(ngModel)]="newItem.name" type="text " name="name ">
-
-      <label>Picture</label>
-      <input [(ngModel)]="newItem.picture" type="text " name="picture">
-
-      <label>Price</label>
-      <input [(ngModel)]="newItem.price" type="text " name="price">
-
-      <label>New or Used?</label>
-      <select [(ngModel)]="newItem.new ">
-        <option value="New ">New</option>
-        <option value="Used ">Used</option>
-      </select>
-
-      <label>Categories</label>
-      <select [(ngModel)]="newItem.category ">
-        <option value="Electronics ">Electronics</option>
-        <option value="Home Furnishing ">Home Furnishing</option>
-        <option value="Appliances ">Appliances</option>
-        <option value="Handmade ">Handmade</option>
-      </select>
-
-      <label>Quantity</label>
-      <input [(ngModel)]=newItem.quantity type="text " name="quantity ">
-
-      <button type="button " (click)="addNewItem() ">Submit</button>
-    </form>
-  </div>
-</div> -->

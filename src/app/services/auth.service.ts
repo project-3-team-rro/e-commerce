@@ -24,6 +24,7 @@ export class AuthService {
     return this.http.post(`http://localhost:3000/api/login`, user)
       .map(res => res.json())
       .catch(this.handleError);
+
   }
 
   logout() {
