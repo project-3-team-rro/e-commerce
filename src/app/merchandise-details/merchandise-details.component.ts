@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../services/auth.service';
 import { MerchandiseService } from '../services/merchandise.service';
-import {CartService} from '../services/cart.service';
-import {Merchandise} from '../classes/merchandise';
+import { CartService } from '../services/cart.service';
+import { Merchandise } from '../classes/merchandise';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -13,17 +13,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./merchandise-details.component.css']
 })
 export class MerchandiseDetailsComponent implements OnInit {
-<<<<<<< HEAD
   public merchandise: Merchandise = {};
   theMerchandise: any = {};
   theUpdate: any = {};
-  // this is the user that we gonna use in this component 
+  // this is the user that we gonna use in this component ;
   user: any;
-=======
-  theMerchandise: any = {};
-  theUpdate: any = {};
   isFormShowing: Boolean = false;
->>>>>>> master
 
   constructor(private authService: AuthService,
     private cartService: CartService,
@@ -31,9 +26,9 @@ export class MerchandiseDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private myRouter: Router) { }
 
-    public getCurrency(): string {
-      return '$';
-    }
+  public getCurrency(): string {
+    return '$';
+  }
 
   getTheItem(id) {
     this.merchandiseService.getMerchandiseDetails(id)
@@ -58,15 +53,15 @@ export class MerchandiseDetailsComponent implements OnInit {
   ngOnInit() {
     // from here
     this.authService.isLoggedIn()
-    .toPromise()
-    .then( () => {
-      // don't forget to declare user up!
-      this.user = JSON.parse(this.authService.currentUser._body)
-    })
-    .catch(err => {
-      console.log('error in ngOnInit in merchendise details: ', err);
-      this.myRouter.navigate(['/login']);
-    });
+      .toPromise()
+      .then(() => {
+        // don't forget to declare user up!
+        this.user = JSON.parse(this.authService.currentUser._body);
+      })
+      .catch(err => {
+        console.log('error in ngOnInit in merchendise details: ', err);
+        this.myRouter.navigate(['/login']);
+      });
     // to here every component that needs to have user needs to have this exactly the same
     this.route.params
       .subscribe(theParams => {
@@ -76,11 +71,11 @@ export class MerchandiseDetailsComponent implements OnInit {
 
   }
 
-    addToCart(product, user) {
-      console.log('what is product: ', product)
-      this.cartService.addToCart(product, user)
-      .then(res => console.log('what is this in the component: ', res) )
-      .catch ( err => console.log('error in add to cart: ', err) );
-    }
+  addToCart(product, user) {
+    console.log('what is product: ', product);
+    this.cartService.addToCart(product, user)
+      .then(res => console.log('what is this in the component: ', res))
+      .catch(err => console.log('error in add to cart: ', err));
+  }
 
 }
