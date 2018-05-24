@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-<<<<<<< HEAD
 import { AuthService } from './services/auth.service';
 import { MerchandiseService } from './services/merchandise.service';
-=======
-import {AuthService} from './services/auth.service';
-import {RouterModule, Routes}from '@angular/router'
-import { Router } from '@angular/router'
->>>>>>> Working on user profile
 
 @Component({
   selector: 'app-root',
@@ -17,12 +11,8 @@ import { Router } from '@angular/router'
 
 export class AppComponent {
 
-<<<<<<< HEAD
   constructor(private authService: AuthService,
     private merchandiseService: MerchandiseService) { }
-=======
-  constructor(private myService: AuthService, private myRouter: Router){}
->>>>>>> Working on user profile
 
   formInfo: any = { username: '', password: '' };
 
@@ -38,11 +28,7 @@ export class AppComponent {
   login() {
     this.authService.login(this.formInfo)
       .subscribe(
-        (user) => {
-          this.user = user;
-          console.log("heyyyyy")
-          this.myRouter.navigate(['/user-profile'])
-        },
+        (user) => this.user = user,
         (err) => this.error = err
       );
   }
