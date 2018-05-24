@@ -11,12 +11,13 @@ import { SearchComponent } from './search/search.component';
 import { MerchandiseListComponent } from './merchandise-list/merchandise-list.component';
 import { MerchandiseDetailsComponent } from './merchandise-details/merchandise-details.component';
 import { EditComponent } from './edit/edit.component';
-
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
   { path: 'merchandise', component: MerchandiseListComponent },
   { path: 'merchandise/:id', component: MerchandiseDetailsComponent },
+  { path: 'profile', component: UserProfileComponent }
 ];
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
     MerchandiseListComponent,
     MerchandiseDetailsComponent,
     EditComponent,
+    UserProfileComponent
   ],
   imports: [
     HttpModule,

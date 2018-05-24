@@ -8,6 +8,7 @@ import { MerchandiseService } from './services/merchandise.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
 
   constructor(private authService: AuthService,
