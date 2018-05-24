@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.post(`http://localhost:3000/api/logout`, {})
+    return this.http.post(`http://localhost:3000/api/logout`, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -50,4 +50,5 @@ export class AuthService {
       .map(res => res.json())
       .catch(this.handleError);
   }
+
 }

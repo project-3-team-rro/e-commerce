@@ -11,14 +11,12 @@ import { MerchandiseService } from './services/merchandise.service';
 import { SearchComponent } from './search/search.component';
 import { MerchandiseListComponent } from './merchandise-list/merchandise-list.component';
 import { MerchandiseDetailsComponent } from './merchandise-details/merchandise-details.component';
-<<<<<<< HEAD
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
-=======
-import { EditComponent } from './edit/edit.component';
 
->>>>>>> master
+import { UserProfileComponent } from './user-profile/user-profile.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -26,7 +24,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'merchandise/:id', component: MerchandiseDetailsComponent },
-  { path: 'user/:id/cart', component: ShoppingCartComponent }
+  { path: 'user/:id/cart', component: ShoppingCartComponent },
+  { path: 'profile', component: UserProfileComponent }
 
 ];
 
@@ -37,13 +36,11 @@ const routes: Routes = [
     SearchComponent,
     MerchandiseListComponent,
     MerchandiseDetailsComponent,
-<<<<<<< HEAD
     ShoppingCartComponent,
     SignupComponent,
-    LoginComponent
-=======
-    EditComponent,
->>>>>>> master
+    LoginComponent,
+    UserProfileComponent
+
   ],
   imports: [
     HttpModule,
