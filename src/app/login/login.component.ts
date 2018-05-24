@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router) { }
 
-  test(): void {
+  ngOnInit() {
     this.authService.isLoggedIn()
       .toPromise()
       .then(() => {
@@ -27,11 +27,8 @@ export class LoginComponent implements OnInit {
       })
       .catch(err => {
         console.log(err);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/merchandise']);
       });
-  }
-
-  ngOnInit() {
   }
 
   login() {
@@ -40,8 +37,8 @@ export class LoginComponent implements OnInit {
         (user) => this.user = user,
         (err) => this.error = err,
     );
-    this.user = false;
-    this.test();
+    console.log('user signed in', this.user);
+    // this.user = false;
     // this.router.navigate(['/merchandise']);
     // console.log(this.user);
   }
@@ -56,7 +53,7 @@ export class LoginComponent implements OnInit {
         },
         (err) => this.error = err
       );
-    this.test();
+    console.log('user signed out', this.user);
   }
 
 }
