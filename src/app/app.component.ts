@@ -9,7 +9,8 @@ import { MerchandiseService } from './services/merchandise.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+
 
   constructor(private authService: AuthService,
     private merchandiseService: MerchandiseService) { }
@@ -26,6 +27,7 @@ export class AppComponent {
 
   form: Boolean = true;
 
+  ngOnInit() {}
 
   logout() {
     this.authService.logout()
