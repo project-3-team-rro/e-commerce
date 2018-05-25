@@ -2,7 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
@@ -15,11 +19,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-
-import { CommentsComponent } from './comments/comments.component';
-
+// import { CommentsComponent } from './comments/comments.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -45,15 +46,14 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     UserProfileComponent,
-
-    CommentsComponent
-
+    // CommentsComponent,
     NavBarComponent
 
 
   ],
   imports: [
     HttpModule,
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),

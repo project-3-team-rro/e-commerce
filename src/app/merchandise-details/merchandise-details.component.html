@@ -21,7 +21,8 @@
     </button>
   </div>
 
-  <div>
+  <div *ngIf='yo(theMerchandise,user)'>
+    <button (click)="deleteItem(theMerchandise._id)">Delete</button>
     <button (click)="toggleForm()">
       <h2>Edit this item</h2>
     </button>

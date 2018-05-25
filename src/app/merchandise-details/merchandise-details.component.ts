@@ -5,6 +5,8 @@ import { MerchandiseService } from '../services/merchandise.service';
 import { CartService } from '../services/cart.service';
 import { Merchandise } from '../classes/merchandise';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MerchandiseListComponent } from '../merchandise-list/merchandise-list.component';
+
 
 
 @Component({
@@ -19,15 +21,46 @@ export class MerchandiseDetailsComponent implements OnInit {
   // this is the user that we gonna use in this component ;
   user: any;
   isFormShowing: Boolean = false;
+  isSeller: Boolean = false;
+  seller: any = '';
+
+  //   hey(seller) => {
+  //   if (seller === this.user) {
+  //     this.isSeller = true;
+  //   }
+  //   console.log('Username:', this.user.username, 'Seller: ', seller.username);
+  // }
+
+
+
+
 
   constructor(private authService: AuthService,
     private cartService: CartService,
     private merchandiseService: MerchandiseService,
     private route: ActivatedRoute,
-    private myRouter: Router) { }
+    private myRouter: Router,
+    // private merchandiseListComponent: MerchandiseListComponent
+  ) { }
 
   public getCurrency(): string {
     return '$';
+  }
+
+  deleteItem(id) {
+    this.merchandiseService.deleteItem(id)
+      .subscribe(() => {
+        // this.merchandiseListComponent.allMerchandise();
+      });
+    this.myRouter.navigate(['/merchandise']);
+  }
+
+
+  yo(seller, user) {
+    if (seller.seller[0] === user.username) {
+      return true;
+    }
+    // console.log('Username:', this.user.username, 'Seller: ', seller.seller[0]);
   }
 
   getTheItem(id) {
