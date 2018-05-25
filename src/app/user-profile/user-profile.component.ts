@@ -21,14 +21,18 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.myService.isLoggedIn()
       .toPromise()
-      .then(userFromDb => {
-        console.log(userFromDb);
+      .then(() => {
+        this.user = this.myService.currentUser;
+        // if(this.user.message === "Unauthorized"){
+        //   this.myRouter.navigate(['/login'])
+        // }
+        console.log("user form profile component: ", this.user);
       })// if all good, we have user
       .catch(error => {
         console.log(error);
         // this.myRouter.navigate(['/'])
       }); // error, redirect to login page again
-    this.user = this.appComponent.user;
+    // this.user = this.appComponent.user;
   }
 
 }

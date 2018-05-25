@@ -10,9 +10,10 @@
 
   <div *ngIf="user">
     <h2>You're signed in</h2>
+    {{ user.message }}
   </div>
 
-  <form action="/updateprofile/{{user._id}}" method="POST">
+  <!-- <form action="/updateprofile/{{user._id}}" method="POST">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Email</label>
@@ -106,10 +107,10 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
-  </form>
+  </form> -->
 
   <div *ngIf="user">
-  <button (click)="logout()"> logout </button>
+  <button type="button"  (click)="logout()"> logout </button>
   </div>
   <!-- <button (click)="getPrivateData()"> Get private data </button> -->
 </div>
