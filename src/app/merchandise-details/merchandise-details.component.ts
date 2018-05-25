@@ -76,7 +76,7 @@ export class MerchandiseDetailsComponent implements OnInit {
       })
       .catch(err => {
         console.log(err);
-        this.myRouter.navigate(['/login']);
+        // this.myRouter.navigate(['/login']);
       });
 
   }

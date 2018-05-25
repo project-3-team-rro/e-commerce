@@ -51,10 +51,10 @@ export class AuthService {
   //     .catch(this.handleError);
   // }
 
-  getUser() {
-    return this.http.get(`http://localhost:3000/api/userInfo`, { withCredentials: true })
-      .map(res => res.json())
-      .catch(this.handleError);
-  }
+  // getUser() {
+  //   return this.http.get(`http://localhost:3000/api/userInfo`, { withCredentials: true })
+  //     .map(res => res.json())
+  //     .catch(this.handleError);
+  // }
 
 }

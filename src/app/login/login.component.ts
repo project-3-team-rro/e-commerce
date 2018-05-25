@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   formInfo: any = { username: '', password: '' };
 
-  user: any;
+  user: any = false;
 
   error: any;
 
@@ -23,11 +23,11 @@ export class LoginComponent implements OnInit {
       .toPromise()
       .then(() => {
         this.formInfo = this.authService.currentUser;
-        // console.log(this.formInfo); ===== Works !
+        // console.log(this.formInfo); ===== Works!
       })
       .catch(err => {
         console.log(err);
-        this.router.navigate(['/merchandise']);
+        // this.router.navigate(['/merchandise']);
       });
   }
 
@@ -36,9 +36,9 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (user) => this.user = user,
         (err) => this.error = err,
+      // (user) => console.log('user signed in' user)
     );
-    console.log('user signed in', this.user);
-    // this.user = false;
+    // this.user = true;
     // this.router.navigate(['/merchandise']);
     // console.log(this.user);
   }
@@ -47,13 +47,13 @@ export class LoginComponent implements OnInit {
     this.authService.logout()
       .subscribe(
         () => {
-          this.user = null;
           this.formInfo = {};
-          this.router.navigate(['/login']);
         },
         (err) => this.error = err
       );
+    this.user = true;
     console.log('user signed out', this.user);
+    this.router.navigate(['/']);
   }
 
 }
