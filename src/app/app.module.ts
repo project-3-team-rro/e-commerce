@@ -30,10 +30,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'merchandise/:id', component: MerchandiseDetailsComponent },
   { path: 'user/:id/cart', component: ShoppingCartComponent },
-  { path: 'profile', component: UserProfileComponent }
+  { path: 'profile/:id', component: UserProfileComponent }
 
 ];
-
 
 @NgModule({
   declarations: [
@@ -45,12 +44,8 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     UserProfileComponent,
-
-    CommentsComponent
-
+    //  CommentsComponent,
     NavBarComponent
-
-
   ],
   imports: [
     HttpModule,

@@ -8,6 +8,10 @@
 
   Update Account:
 
+  <div *ngIf="user">
+    <h2>You're signed in</h2>
+  </div>
+
   <form action="/updateprofile/{{user._id}}" method="POST">
     <div class="form-row">
       <div class="form-group col-md-6">
@@ -104,10 +108,8 @@
     <button type="submit" class="btn btn-primary">Update</button>
   </form>
 
+  <div *ngIf="user">
   <button (click)="logout()"> logout </button>
+  </div>
   <!-- <button (click)="getPrivateData()"> Get private data </button> -->
-</div>
-
-<div *ngIf="user">
-  <h2>ur signed in</h2>
 </div>
