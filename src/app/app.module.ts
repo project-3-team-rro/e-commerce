@@ -16,7 +16,12 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
+
 import { CommentsComponent } from './comments/comments.component';
+
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 const routes: Routes = [
@@ -41,7 +46,11 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     UserProfileComponent,
+
     CommentsComponent
+
+    NavBarComponent
+
 
   ],
   imports: [
@@ -49,6 +58,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
   ],
   providers: [MerchandiseService, AuthService, CartService],
   bootstrap: [AppComponent]
