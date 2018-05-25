@@ -1,3 +1,4 @@
+
 <div class="container">
   <div *ngIf="!user">
     <h1>Log In</h1>
@@ -6,6 +7,7 @@
         <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
       </div>
       <input type="text" [(ngModel)]="formInfo.username" name="username" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -21,6 +23,7 @@
       Not a user?
       <a [routerLink]="['/signup']"> Signup </a>
     </div>
+
   </div>
 
   <div *ngIf="user">
