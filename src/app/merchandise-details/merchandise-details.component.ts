@@ -60,13 +60,23 @@ export class MerchandiseDetailsComponent implements OnInit {
       })
       .catch(err => {
         console.log('error in ngOnInit in merchendise details: ', err);
-        this.myRouter.navigate(['/login']);
+        // this.myRouter.navigate(['/login']);
       });
     // to here every component that needs to have user needs to have this exactly the same
     this.route.params
       .subscribe(theParams => {
         const theID = theParams['id'];
         this.getTheItem(theID);
+      });
+    this.authService.isLoggedIn()
+      .toPromise()
+      .then(() => {
+        this.user = this.authService.currentUser;
+        // console.log(this.user); ===== Works !
+      })
+      .catch(err => {
+        console.log(err);
+        // this.myRouter.navigate(['/login']);
       });
 
   }
