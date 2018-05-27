@@ -16,13 +16,20 @@
     <h4> Description//{{theMerchandise.description}}</h4>
     <h4> seller// {{theMerchandise.seller}}</h4>
     <h4> Quantity//{{theMerchandise.quantity}}</h4>
-    <button class="add-to-cart" (click)="addToCart(theMerchandise, user)">
-      Add to cart
-    </button>
+    <div *ngIf='cartButtonShown(theMerchandise)'>
+      <button class="add-to-cart" (click)="addToCart(theMerchandise, user)">
+        Add to cart
+      </button>
+    </div>
   </div>
 
-  <div *ngIf='yo(theMerchandise,user)'>
-    <button (click)="deleteItem(theMerchandise._id)">Delete</button>
+
+  <div *ngIf='userEqualSeller(theMerchandise)'>
+
+    <!-- LINE 26 IS TEMPORARY FIX ASK SOMBODY FOR HELP  -->
+    <a href="/merchandise">
+      <button (click)="deleteItem(theMerchandise._id)">Delete</button>
+    </a>
     <button (click)="toggleForm()">
       <h2>Edit this item</h2>
     </button>

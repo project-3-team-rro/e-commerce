@@ -52,16 +52,27 @@ export class MerchandiseDetailsComponent implements OnInit {
       .subscribe(() => {
         // this.merchandiseListComponent.allMerchandise();
       });
-    this.myRouter.navigate(['/merchandise']);
+    // this.myRouter.navigate(['/merchandise']);
   }
 
 
-  yo(seller, user) {
-    if (seller.seller[0] === user.username) {
+  userEqualSeller(seller) {
+    if (seller.seller[0] === this.user.username) {
       return true;
     }
     // console.log('Username:', this.user.username, 'Seller: ', seller.seller[0]);
   }
+
+  cartButtonShown(seller) {
+    if (seller.seller[0] === this.user.username || this.theMerchandise.quantity === 0) {
+      // console.log('quantity:', this.theMerchandise.quantity);
+      return false;
+    } else {
+      // console.log('quantity:', this.theMerchandise.quantity);
+      return true;
+    }
+  }
+
 
   getTheItem(id) {
     this.merchandiseService.getMerchandiseDetails(id)
