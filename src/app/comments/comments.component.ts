@@ -24,6 +24,7 @@ export class CommentsComponent implements OnInit {
   createNewComment(contentArg: string): void {
     const newComment = { content: contentArg };
     this.comments.push(newComment);
+    console.log('----------');
   }
 
   deleteTheComment(entireComment) {

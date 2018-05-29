@@ -32,6 +32,10 @@ h1 {
   height: auto;
 }
 
+.line {
+  background: #a7adba;
+}
+
 .add-to-cart {
   color: #a7adba;
 }

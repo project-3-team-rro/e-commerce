@@ -13,16 +13,18 @@
   <app-single-comment [oneSingleComment]="oneComment" (commentBeingDeleted)="deleteTheComment($event)"></app-single-comment>
 </div> -->
 
-<button type="button" (click)="toggleForm()">Create New Comment</button>
+<button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
 
 <form *ngIf="showForm">
-  <p>Content</p>
-  <input [(ngModel)]="newComment.content" name="whatever" />
 
-  <button (click)="addNew()">Add Comment</button>
+  <textarea class="text-area" [(ngModel)]="newComment.content" rows="4" cols="50" maxlength="200">
+    loading...
+  </textarea>
+  <button class="btn btn-outline-dark" (click)="addNew()">Add Comment</button>
 </form>
 
-<div *ngFor="let oneComment of comments">
+<div class="comments" *ngFor="let oneComment of comments">
+  <h1>{{oneComment.content}}</h1>
 </div>
 
 <p>comments work</p>
