@@ -11,6 +11,7 @@ import { AppComponent } from '../app.component';
   templateUrl: './merchandise-list.component.html',
   styleUrls: ['./merchandise-list.component.css']
 })
+
 export class MerchandiseListComponent implements OnInit {
 
   user: any;
@@ -59,7 +60,7 @@ export class MerchandiseListComponent implements OnInit {
 
   ngOnInit() {
     this.allMerchandise();
-    this.user = this.appComponent.user;
+    // this.user = this.appComponent.user;
     console.log(this.allMerchandise);
     console.log('-----------');
   }

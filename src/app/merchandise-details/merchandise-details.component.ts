@@ -22,7 +22,7 @@ export class MerchandiseDetailsComponent implements OnInit {
   user: any;
   isFormShowing: Boolean = false;
   isSeller: Boolean = false;
-  seller: any = '';
+  // seller: any = '';
 
   //   hey(seller) => {
   //   if (seller === this.user) {
@@ -56,22 +56,22 @@ export class MerchandiseDetailsComponent implements OnInit {
   }
 
 
-  userEqualSeller(seller) {
-    if (seller.seller[0] === this.user.username) {
+  userEqualSeller() {
+    if (this.theMerchandise.seller[0] === this.user.username) {
       return true;
     }
-    // console.log('Username:', this.user.username, 'Seller: ', seller.seller[0]);
+    console.log('Username:', this.user.username, 'Seller: ', this.theMerchandise.seller[0]);
   }
 
-  cartButtonShown(seller) {
-    if (seller.seller[0] === this.user.username || this.theMerchandise.quantity === 0) {
-      // console.log('quantity:', this.theMerchandise.quantity);
-      return false;
-    } else {
-      // console.log('quantity:', this.theMerchandise.quantity);
-      return true;
-    }
-  }
+  // cartButtonShown(seller) {
+  //   if (seller.seller[0] === this.user.username || seller.quantity === 0) {
+  //     // console.log('quantity:', this.theMerchandise.quantity);
+  //     return false;
+  //   } else {
+  //     console.log('quantity:', this.theMerchandise.quantity);
+  //     return true;
+  //   }
+  // }
 
 
   getTheItem(id) {
