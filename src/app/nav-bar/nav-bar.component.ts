@@ -6,6 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MerchandiseService } from '../services/merchandise.service';
+import { SearchComponent } from "../search/search.component";
 
 
 declare var jquery: any;
