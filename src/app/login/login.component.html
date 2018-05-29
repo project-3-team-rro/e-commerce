@@ -1,5 +1,7 @@
 <div class="container">
-  <div *ngIf="user">
+
+  <!-- <div *ngIf="!user"> -->
+
     <h1>Log In</h1>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -15,7 +17,7 @@
       <input type="password" [(ngModel)]="formInfo.password" name="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
     </div>
     <button type="button" class="btn btn-primary" (click)="login()">Log In</button>
-    <button type="button" class="btn btn-primary" (click)="logout()">Log Out</button>
+    <!-- <button type="button" class="btn btn-primary" (click)="logout()">Log Out</button> -->
     <br>
     <br>
     <div>
@@ -25,7 +27,7 @@
 
   </div>
 
-  <div *ngIf="!user">
+  <div *ngIf="user">
     <!-- <h2> Welcome, {{ formInfo.username }}!! </h2> -->
 
     <button type="button" (click)="logout()"> logout </button>
@@ -37,5 +39,5 @@
       <a [routerLink]="['/profile']"> Profile </a>
     </button> -->
 
-  </div>
+  <!-- </div> -->
 </div>

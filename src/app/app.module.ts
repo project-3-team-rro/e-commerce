@@ -6,8 +6,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-
 import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
 import { CartService } from './services/cart.service';
@@ -18,28 +16,16 @@ import { MerchandiseDetailsComponent } from './merchandise-details/merchandise-d
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
-
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
-
 import { UserProfileComponent } from './user-profile/user-profile.component';
-// import { CommentsComponent } from './comments/comments.component';
+import { CommentsComponent } from './comments/comments.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-
 import { FooterComponent } from './footer/footer.component';
 
 
-
-import { ProfileComponent } from './profile/profile.component';
-
 import { IconModule } from 'angular-icon';
-import {MatIconModule} from '@angular/material/icon';
-import {DomSanitizer} from '@angular/platform-browser';
-
-
-
-
-
+import { MatIconModule } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -63,13 +49,9 @@ const routes: Routes = [
     LoginComponent,
     UserProfileComponent,
 
-    ProfileComponent,
-
     NavBarComponent,
-    FooterComponent
-
-
-
+    FooterComponent,
+    CommentsComponent
   ],
   imports: [
     HttpModule,
