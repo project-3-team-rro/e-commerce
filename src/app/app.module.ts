@@ -20,6 +20,7 @@ import { CommentsComponent } from './comments/comments.component';
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -45,7 +46,8 @@ const routes: Routes = [
     LoginComponent,
     UserProfileComponent,
     //  CommentsComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProfileComponent
   ],
   imports: [
     HttpModule,
