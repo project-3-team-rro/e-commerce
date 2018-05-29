@@ -12,6 +12,10 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+      </li>
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
@@ -48,29 +52,25 @@
         <button (click)="logout()"> logout </button>
       </li>
       <li>
-        <a href="url">
+        
+        <a href="'/user/', user._id, 'cart'">
           <span>
-            <mat-icon>shopping_cart</mat-icon>
-          </span>
-        </a>
+              <button mat-button>
+            <mat-icon >shopping_cart</mat-icon>
+          </button>
+        </span>
+      </a>
       </li>
     </ul>
+ 
 
 
 
 
-
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/profile']">Profile</a>
-    </li>
+    
 
 
-    <div class="centered">
-      <form class="form-inline my-2 my-lg-2">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
+  
 
   </div>
 </nav>
