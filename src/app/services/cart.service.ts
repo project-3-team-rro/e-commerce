@@ -40,7 +40,7 @@ export class CartService {
   }
 
 
-  public getTotalAmount(): Observable<umber> {
+  public getTotalAmount(): Observable<number> {
     return this.itemsInCartSubject.map((items: Merchandise[]) => {
       return items.reduce((prev, curr: Merchandise) => {
         return prev + curr.price;
