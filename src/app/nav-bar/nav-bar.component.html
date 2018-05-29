@@ -36,41 +36,30 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a [routerLink]="['/signup']">
-          <span class="glyphicon glyphicon-user"></span> Sign Up</a>
-      </li>
-      <li>
-        <a [routerLink]="['/login']">
-          <span class="glyphicon glyphicon-log-in"></span> Login</a>
-      </li>
-      <li *ngIf="user">
-        <button (click)="logout()"> logout </button>
-      </li>
-      <li>
-        <a href="url">
-          <span>
-            <mat-icon>shopping_cart</mat-icon>
-          </span>
-        </a>
-      </li>
-    </ul>
 
+        <li><a [routerLink]="['/signup']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="user">
+            <button (click)="logout()"> logout </button>
+        </li>
+        <li>
+            <a href="url"><span><mat-icon>shopping_cart</mat-icon></span></a>
+        </li>
+      </ul>
+     
 
+      
+     
 
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+        </li>
+       
+    
+   
+   
 
-
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/profile']">Profile</a>
-    </li>
-
-
-    <div class="centered">
-      <form class="form-inline my-2 my-lg-2">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
+   
 
   </div>
 </nav>

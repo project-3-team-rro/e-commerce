@@ -11,7 +11,30 @@ import { AppComponent } from '../app.component';
 })
 export class UserProfileComponent implements OnInit {
 
-  user: any;
+  formInfo: any = {
+    email: "",
+    password: "",
+    address:{
+      street: "",
+      streetSecondLine: "",
+      city: "",
+      state: "",
+      zip: ""
+    }
+  };
+
+  user: any = {
+    email: "",
+    password: "",
+    address:{
+      street: "",
+      streetSecondLine: "",
+      city: "",
+      state: "",
+      zip: ""
+    }
+  }
+  error: any;
 
   constructor(
     private myService: AuthService,
@@ -23,6 +46,8 @@ export class UserProfileComponent implements OnInit {
       .toPromise()
       .then(() => {
         this.user = this.myService.currentUser;
+        if (!this.user.address) { this.user.address= {}; }
+        
         // if(this.user.message === "Unauthorized"){
         //   this.myRouter.navigate(['/login'])
         // }
@@ -32,7 +57,19 @@ export class UserProfileComponent implements OnInit {
         console.log(error);
         // this.myRouter.navigate(['/']);
       }); // error, redirect to login page again
-    // this.user = this.appComponent.user;
+    // this.user = this.appComponent.user;\
+  }
+
+  update(theId) {
+    console.log(this.formInfo);
+    this.myService.update(this.formInfo, theId)
+      .subscribe(
+        (user) => {
+          this.user = user;
+          // console.log(this.user);
+        },
+        (err) => this.error = this.myRouter.navigate(['/login']),
+    );
   }
 
 }
