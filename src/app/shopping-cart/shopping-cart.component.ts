@@ -25,7 +25,7 @@ export class ShoppingCartComponent implements OnInit {
       })
       .catch(err => {
         console.log('Error with user in shopping cart: ', err);
-        this.myRoute.navigate(['/login']);
+        // this.myRoute.navigate(['/login']);
       });
 
     this.myActivated.params.subscribe((params) => {
