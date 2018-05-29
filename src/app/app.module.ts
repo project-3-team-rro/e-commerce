@@ -18,10 +18,22 @@ import { MerchandiseDetailsComponent } from './merchandise-details/merchandise-d
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 import { UserProfileComponent } from './user-profile/user-profile.component';
 // import { CommentsComponent } from './comments/comments.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 import { FooterComponent } from './footer/footer.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IconModule } from 'angular-icon';
+import {MatIconModule} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -36,7 +48,6 @@ const routes: Routes = [
 
 ];
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +58,7 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     UserProfileComponent,
+
     // CommentsComponent,
     NavBarComponent,
     FooterComponent
@@ -60,6 +72,10 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
+    AngularFontAwesomeModule,
+    HttpClientModule,
+    IconModule,
+    MatIconModule
   ],
   providers: [MerchandiseService, AuthService, CartService],
   bootstrap: [AppComponent]
