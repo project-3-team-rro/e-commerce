@@ -27,7 +27,6 @@ export class AuthService {
     return this.http.post(`http://localhost:3000/api/login`, user, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
-
   }
 
   logout() {
@@ -35,7 +34,6 @@ export class AuthService {
       .map(res => {
         console.log('here');
         this.currentUser = null;
-
         res.json();
       })
       .catch(this.handleError);
@@ -47,7 +45,7 @@ export class AuthService {
         this.temporaryUser = res;
         this.currentUser = JSON.parse(this.temporaryUser._body);
         // this.currentUser = res.json();
-        console.log('res in the service: ', this.currentUser);
+        // console.log('res in the service: ', this.currentUser);
         res.json();
       })
       .catch(this.handleError);

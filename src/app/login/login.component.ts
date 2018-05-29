@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
 
   error: any;
 
+  userLoggedIn: Boolean = false;
+
   constructor(
     private authService: AuthService,
     private router: Router) { }
@@ -30,7 +32,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/login']);
         } else {
           console.log('user there: ', this.user);
-
           // this.router.navigate(['/']);
         }
       })
