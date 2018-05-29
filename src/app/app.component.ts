@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Sanitizer } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from './services/auth.service';
 import { MerchandiseService } from './services/merchandise.service';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +13,11 @@ import { MerchandiseService } from './services/merchandise.service';
 
 export class AppComponent implements OnInit {
 
-
   constructor(
     private authService: AuthService,
     private merchandiseService: MerchandiseService,
   ) { }
+
 
   formInfo: any = { username: '', password: '', role: '' };
 

@@ -30,10 +30,10 @@ export class SignupComponent implements OnInit {
         (user) => {
           this.user = user;
           console.log(this.user);
+          this.router.navigate(['/merchandise']);
         },
-        (err) => this.error = err
-      );
-    this.router.navigate(['/merchandise']);
+        (err) => this.error = this.router.navigate(['/login']),
+    );
   }
 
 }
