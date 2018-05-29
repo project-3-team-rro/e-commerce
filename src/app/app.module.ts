@@ -21,16 +21,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CommentsComponent } from './comments/comments.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProfileComponent } from './profile/profile.component';
+
 
 import { IconModule } from 'angular-icon';
 import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-
-
-
-
-
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -53,7 +48,7 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     UserProfileComponent,
-    ProfileComponent,
+
     NavBarComponent,
     FooterComponent,
     CommentsComponent
