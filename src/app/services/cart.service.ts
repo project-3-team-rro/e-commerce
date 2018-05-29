@@ -24,7 +24,7 @@ export class CartService {
   }
 
   getTheCartContent(userId) {
-    return this.myHttp.get(`http://localhost:3000/api/user/${userId}/cart`)
+    return this.myHttp.get(`http://localhost:3000/api/user/${userId}/cart`, { withCredentials: true })
       .toPromise()
       .then(res => res.json());
   }

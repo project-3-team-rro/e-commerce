@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Rx';
 export class AuthService {
 
   currentUser: any;
+  temporaryUser:any;
 
   constructor(private http: Http) { }
 
@@ -30,25 +31,36 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.post(`http://localhost:3000/api/logout`, { withCredentials: true })
-      .map(res => res.json())
+    return this.http.delete(`http://localhost:3000/api/logout`, { withCredentials: true })
+      .map(res => {
+        console.log("here")
+         this.currentUser = null; 
+        res.json()})
       .catch(this.handleError);
   }
 
   isLoggedIn() {
     return this.http.get(`http://localhost:3000/api/loggedin`, { withCredentials: true })
       .map(res => {
-        this.currentUser = res;
-        console.log('user in the service: ', res)
+        this.temporaryUser = res;
+        this.currentUser = JSON.parse(this.temporaryUser._body)
+        // this.currentUser = res.json();
+        console.log('res in the service: ', this.currentUser);
         res.json();
       })
       .catch(this.handleError);
   }
 
-  getPrivateData() {
-    return this.http.get(`http://localhost:3000/api/private`)
-      .map(res => res.json())
-      .catch(this.handleError);
-  }
+  // getPrivateData() {
+  //   return this.http.get(`http://localhost:3000/api/private`)
+  //     .map(res => res.json())
+  //     .catch(this.handleError);
+  // }
+
+  // getUser() {
+  //   return this.http.get(`http://localhost:3000/api/userInfo`, { withCredentials: true })
+  //     .map(res => res.json())
+  //     .catch(this.handleError);
+  // }
 
 }

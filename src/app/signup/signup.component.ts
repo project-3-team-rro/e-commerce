@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,10 @@ export class SignupComponent implements OnInit {
   error: any;
 
 
-  constructor( private authService: AuthService ) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
@@ -29,6 +33,7 @@ export class SignupComponent implements OnInit {
         },
         (err) => this.error = err
       );
+    this.router.navigate(['/merchandise']);
   }
 
 }
