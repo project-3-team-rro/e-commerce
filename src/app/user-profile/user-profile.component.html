@@ -17,29 +17,29 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" name="email" value="{{user.email}}">
+        <input type="email" class="form-control" id="inputEmail4" name="email" value="{{user.email}}" [(ngModel)]="formInfo.email">
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" name="password" value="{{user.password}}">
+        <input type="password" class="form-control" id="inputPassword4" name="password" [(ngModel)]="formInfo.password">
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" name="address1" value="{{user.address.street}}">
+      <input type="text" class="form-control" id="inputAddress" name="address1" value="{{user.address.street}}" [(ngModel)]="formInfo.address.street">
     </div>
     <div class="form-group">
       <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" name="address2" value="{{user.address.streetSecondLine}}">
+      <input type="text" class="form-control" id="inputAddress2" name="address2" value="{{user.address.street2}}" [(ngModel)]="formInfo.address.streetSecondLine">
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity" name="city" value="{{user.address.city}}">
+        <input type="text" class="form-control" id="inputCity" name="city" value="{{user.address.city}}" [(ngModel)]="formInfo.address.city">
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-        <select id="inputState" class="form-control" name="state">
+        <select id="inputState" class="form-control" name="state" value="{{user.address.state}}" [(ngModel)]="formInfo.address.state">
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -95,7 +95,7 @@
       </div>
       <div class="form-group col-md-2">
         <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" name="zip" id="inputZip">
+        <input type="text" class="form-control" name="zip" id="inputZip" value="{{user.address.zip}}" [(ngModel)]="formInfo.address.zip">
       </div>
     </div>
     <div class="form-group">
@@ -106,7 +106,7 @@
         </label>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-primary" (click)="update(user._id)">Update</button>
   </form>
 
   <div *ngIf="user">

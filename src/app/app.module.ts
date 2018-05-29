@@ -62,9 +62,6 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     UserProfileComponent,
-
-    ProfileComponent,
-
     NavBarComponent,
     FooterComponent
 
