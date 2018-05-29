@@ -7,17 +7,18 @@
   <div class="actual-item">
     <h1>{{theMerchandise.name}}</h1>
     <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
+    <h4>{{theMerchandise.description}}</h4>
   </div>
 
   <div class="merchandise-information">
     <h2>{{getCurrency()}}{{theMerchandise.price}}</h2>
     <h4> category//{{theMerchandise.category}}</h4>
     <h4> new or used?//{{theMerchandise.new}}</h4>
-    <h4> Description//{{theMerchandise.description}}</h4>
+
     <h4> seller// {{theMerchandise.seller}}</h4>
     <h4> Quantity//{{theMerchandise.quantity}}</h4>
     <div *ngIf='cartButtonShown(theMerchandise)'>
-      <button class="add-to-cart" (click)="addToCart(theMerchandise, user)">
+      <button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
         Add to cart
       </button>
     </div>

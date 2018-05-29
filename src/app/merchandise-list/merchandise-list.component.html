@@ -1,17 +1,19 @@
-<div class="merchandise-list-container">
-  <div *ngFor="let item of allTheMerchandise" class="card card-background" style="width: 18rem;">
-    <div class="imageBox">
-      <img class="card-img-top" [src]='item.picture' alt="{{item.name}}">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">{{item.name}}</h5>
-      <p class="card-text">${{item.price}}</p>
-      <a [routerLink]="['/merchandise', item._id]">
-        More Information about {{item.name}}
-      </a>
-      <hr>
-      <!-- <button (click)="deleteItem(item._id)">Delete</button> -->
-      {{item.new}}
+<div class="merchandise-list-container-primary">
+  <div class="merchandise-list-container">
+    <div *ngFor="let item of allTheMerchandise" class="card card-background" style="width: 18rem;">
+      <div class="imageBox">
+        <img class="card-img-top" [src]='item.picture' alt="{{item.name}}">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">${{item.price}}</p>
+        <a [routerLink]="['/merchandise', item._id]">
+          More Information about {{item.name}}
+        </a>
+        <hr>
+        <!-- <button (click)="deleteItem(item._id)">Delete</button> -->
+        {{item.new}}
+      </div>
     </div>
   </div>
 </div>
@@ -19,9 +21,9 @@
 <!--  -->
 
 <!-- <div *ngIf="this.appComponent.user"> -->
-<button (click)="toggleForm() ">
+<!-- <button (click)="toggleForm() ">
   <h1> CREATE</h1>
-</button>
+</button> -->
 <form *ngIf="isFormShowing">
   <div class="form-group">
     <label for="exampleFormControlInput1">Name of Product</label>

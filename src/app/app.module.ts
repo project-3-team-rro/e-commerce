@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 // import { CommentsComponent } from './comments/comments.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -47,7 +48,8 @@ const routes: Routes = [
     LoginComponent,
     UserProfileComponent,
     // CommentsComponent,
-    NavBarComponent
+    NavBarComponent,
+    FooterComponent
 
 
   ],
