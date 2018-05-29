@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         } else {
           console.log("user there: ", this.user)
 
-          this.router.navigate(['/profile']);
+          // this.router.navigate(['/profile']);
         }
       })
       .catch(err => {
