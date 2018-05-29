@@ -29,10 +29,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ProfileComponent } from './profile/profile.component';
+
 import { IconModule } from 'angular-icon';
 import {MatIconModule} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -59,9 +63,11 @@ const routes: Routes = [
     LoginComponent,
     UserProfileComponent,
 
-    // CommentsComponent,
+    ProfileComponent,
+
     NavBarComponent,
     FooterComponent
+
 
 
   ],
