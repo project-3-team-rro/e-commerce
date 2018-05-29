@@ -4,6 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { MerchandiseService } from '../services/merchandise.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+// import { MerchandiseDetailsComponent } from '../merchandise-details/merchandise-details.component';
 
 @Component({
   selector: 'app-merchandise-list',
@@ -21,7 +22,9 @@ export class MerchandiseListComponent implements OnInit {
   constructor(
     private merchandiseService: MerchandiseService, private authService: AuthService,
     private router: Router,
-    private appComponent: AppComponent) { }
+    private appComponent: AppComponent,
+    // private merchandiseDetailsComponent: MerchandiseDetailsComponent
+  ) { }
 
 
   allMerchandise(): any {
@@ -57,6 +60,8 @@ export class MerchandiseListComponent implements OnInit {
   ngOnInit() {
     this.allMerchandise();
     this.user = this.appComponent.user;
+    console.log(this.allMerchandise);
+    console.log('-----------');
   }
 
 

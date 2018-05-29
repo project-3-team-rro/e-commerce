@@ -2,7 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
@@ -19,15 +23,17 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
-
-import { CommentsComponent } from './comments/comments.component';
-
+// import { CommentsComponent } from './comments/comments.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+
+import { FooterComponent } from './footer/footer.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconModule } from 'angular-icon';
 import {MatIconModule} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -52,11 +58,16 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     UserProfileComponent,
-    //  CommentsComponent,
-    NavBarComponent
+
+    // CommentsComponent,
+    NavBarComponent,
+    FooterComponent
+
+
   ],
   imports: [
     HttpModule,
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),

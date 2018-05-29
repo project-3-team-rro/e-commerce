@@ -3,12 +3,17 @@ img {
   /* height: 25px; */
 }
 
+.merchandise-list-container-primary {
+  display: flex;
+  justify-content: center;
+}
+
 .merchandise-list-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   /* align-items: baseline; */
-  background: rgb(173, 187, 202);
+  background: #65737e;
 }
 
 .card-background {

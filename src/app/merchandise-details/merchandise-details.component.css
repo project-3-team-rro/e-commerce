@@ -1,13 +1,21 @@
 img {
-  width: 300px;
+  width: 50%;
+  height: 65%;
+}
+
+h1 {
+  color: #a7adba;
 }
 
 .actual-item {
-  background: white;
+  color: #a7adba;
+  width: 40%;
+  height: 100%;
 }
 
 .merchandise-information {
   width: 50%;
+  color: #a7adba;
 }
 
 .edit {
@@ -17,8 +25,13 @@ img {
 }
 
 .merchandise-details-container {
-  background: rgb(173, 187, 202);
+  background: #4f5b66;
   display: flex;
   justify-content: space-around;
-  /* background-size: cover; */
+  background-size: cover;
+  height: auto;
+}
+
+.add-to-cart {
+  color: #a7adba;
 }
