@@ -26,11 +26,11 @@ export class UserProfileComponent implements OnInit {
         // if(this.user.message === "Unauthorized"){
         //   this.myRouter.navigate(['/login'])
         // }
-        console.log("user form profile component: ", this.user);
+        console.log('user form profile component: ', this.user);
       })// if all good, we have user
       .catch(error => {
         console.log(error);
-        // this.myRouter.navigate(['/'])
+        // this.myRouter.navigate(['/']);
       }); // error, redirect to login page again
     // this.user = this.appComponent.user;
   }
