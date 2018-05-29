@@ -23,15 +23,18 @@ export class LoginComponent implements OnInit {
       .toPromise()
       .then(() => {
         this.user = this.authService.currentUser;
-        console.log("user in the login component is: ", this.user);
+        console.log('user in the login component is: ', this.user);
 
-        if(this.user === null || this.user === undefined){
-          console.log("user here: ", this.user)
+        if (this.user === null || this.user === undefined) {
+          console.log('user here: ', this.user);
           this.router.navigate(['/login']);
         } else {
-          console.log("user there: ", this.user)
+          console.log('user there: ', this.user);
 
           // this.router.navigate(['/profile']);
+
+          // this.router.navigate(['/']);
+
         }
       })
       .catch(err => {
@@ -53,7 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
-    console.log("whatttttttt")
+    console.log('whatttttttt');
     this.authService.logout()
       .subscribe(
         () => {

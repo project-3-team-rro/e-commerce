@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Rx';
 export class AuthService {
 
   currentUser: any;
-  temporaryUser:any;
+  temporaryUser: any;
 
   constructor(private http: Http) { }
 
@@ -33,9 +33,11 @@ export class AuthService {
   logout() {
     return this.http.delete(`http://localhost:3000/api/logout`, { withCredentials: true })
       .map(res => {
-        console.log("here")
-         this.currentUser = null; 
-        res.json()})
+        console.log('here');
+        this.currentUser = null;
+
+        res.json();
+      })
       .catch(this.handleError);
   }
 
@@ -43,7 +45,7 @@ export class AuthService {
     return this.http.get(`http://localhost:3000/api/loggedin`, { withCredentials: true })
       .map(res => {
         this.temporaryUser = res;
-        this.currentUser = JSON.parse(this.temporaryUser._body)
+        this.currentUser = JSON.parse(this.temporaryUser._body);
         // this.currentUser = res.json();
         console.log('res in the service: ', this.currentUser);
         res.json();
