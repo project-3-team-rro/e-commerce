@@ -12,6 +12,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ShoppingCartComponent implements OnInit {
   allTheProducts: Array<any> = [];
   user: any;
+  taxRate: Number = 0.05;
+  shippingRate: Number = 15.00;
+ fadeTime: Number = 300;
   constructor(private myCartService: CartService,
     private myAuth: AuthService,
     private myActivated: ActivatedRoute,
@@ -42,6 +45,29 @@ export class ShoppingCartComponent implements OnInit {
       .catch(err => {
         console.log('error while getting the cart content: ', err);
       });
+
+  }
+
+
+  increaseQuantity() {
+    let value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('number').value = value;
+
+  }
+
+  decreaseQuantity() {
+    let value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('number').value = value;
+
+  }
+
+  removeCartItem(removeButton) {
+
 
   }
 

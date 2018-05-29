@@ -1,16 +1,9 @@
-img {
-  width: 20%;
-}
-
-.container {
-  background: #65737e;
-}
-
-.footer-container {
-  display: flex;
-}
-
-.footer {
-  justify-content: center;
-  align-content: center;
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: bg-light-gray;
+  color: black;
+  text-align: center;
 }
