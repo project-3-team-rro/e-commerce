@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
     this.route.params
       .subscribe(theParams => {
         const theID = theParams['id'];
-        this.getTheItem(theID);
+        // this.getTheItem(theID);
       });
     this.authService.isLoggedIn()
       .toPromise()
