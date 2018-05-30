@@ -132,15 +132,23 @@ export class MerchandiseDetailsComponent implements OnInit {
 
   ////////////////////////////////////////////////////////
 
-  addNew(id): void {
-    this.merchandiseService.createComment(this.newComment).subscribe(foo => {
-      this.newComment = {};
-      console.log('yooooo', this.newComment);
-      this.toggleForm();
-    });
-    // this.comments.push(newOne);
-    // this.newComment.content = '';
-
+  // addNew(id): void {
+  //   this.merchandiseService.createComment(this.newComment).subscribe(foo => {
+  //     this.newComment = {};
+  //     console.log('yooooo', this.newComment);
+  //     this.toggleForm();
+  //   });
+  //   // this.comments.push(newOne)
+  //   // this.newComment.content = '';
+  // }
+  addNew(): void {
+    const newOne = { content: this.newComment.content };
+    this.comments.push(newOne);
+    this.newComment.content = '';
+    this.toggleForm();
+    console.log('--------------------COMMENTS-----------------', this.comments);
   }
+
+
 
 }
