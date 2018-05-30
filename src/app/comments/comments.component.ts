@@ -16,15 +16,14 @@ export class CommentsComponent implements OnInit {
   //   email: '',
   //   password: ''
   // };
-
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.authService.getThreads()
       .subscribe(
-        comments => {
+        comment => {
+          this.comments = comment;
           this.message = '';
-          this.comments = comments;
         },
         err => {
           this.message = 'Error loading comments';
@@ -33,12 +32,6 @@ export class CommentsComponent implements OnInit {
   }
 
 }
-
-
-
-
-
-
 
 
 

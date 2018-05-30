@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MerchandiseService } from '../services/merchandise.service';
-import { SearchComponent } from "../search/search.component";
+import { SearchComponent } from '../search/search.component';
 
 
 declare var jquery: any;
@@ -34,7 +34,7 @@ export class NavBarComponent implements OnInit {
     private myRouter: Router, private route: ActivatedRoute, private merchandiseService: MerchandiseService) {
     iconRegistry.addSvgIcon(
       'cart',
-    sanitizer.bypassSecurityTrustUrl('assets/cart.svg'));
+      sanitizer.bypassSecurityTrustUrl('assets/cart.svg'));
   }
 
   // unnecessary
@@ -54,7 +54,7 @@ export class NavBarComponent implements OnInit {
       })
       .catch(err => {
         console.log('error in ngOnInit in merchendise details: ', err);
-        this.myRouter.navigate(['/login']);
+        // this.myRouter.navigate(['/login']);
       });
     // to here every component that needs to have user needs to have this exactly the same
     this.route.params
