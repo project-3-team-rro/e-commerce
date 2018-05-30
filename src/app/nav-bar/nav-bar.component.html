@@ -37,8 +37,6 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-
-
         <li><a [routerLink]="['/signup']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li *ngIf="user">
@@ -49,20 +47,5 @@
           <a [routerLink]="['/user', user._id, 'cart']">shopping_cart</a> -->
         </li>
       </ul>
-     
-
-      
-     
-
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
-        </li>
-       
-    
-   
-   
-
-
-
   </div>
 </nav>

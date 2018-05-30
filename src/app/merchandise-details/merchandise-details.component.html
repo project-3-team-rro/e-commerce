@@ -10,7 +10,25 @@
     <!-- <img [src]="theMerchandise.picture" alt="theMerchandise.name"> -->
     <h4>{{theMerchandise.description}}</h4>
     <hr class="line">
-    <app-comments></app-comments>
+
+
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+    <button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
+
+    <form *ngIf="!showForm">
+      <textarea class="text-area" name="comment" [(ngModel)]="newComment.content" rows="4" cols="50" maxlength="200">
+      </textarea>
+      <button type="button" class="btn btn-outline-dark" (click)="addNew() ">Add Comment</button>
+    </form>
+
+    <div *ngIf="showForm">
+      <div class="comments" *ngFor="let oneComment of comments">
+        <p>{{oneComment.content}}</p>
+        <hr>
+      </div>
+    </div>
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
   </div>
 
   <div class="merchandise-information">

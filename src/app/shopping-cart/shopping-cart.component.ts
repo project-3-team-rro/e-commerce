@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
-import { AuthService } from '../services/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
-// import { userInfo } from 'os';
+// import { Component, OnInit } from '@angular/core';
+// import { CartService } from '../services/cart.service';
+// import { AuthService } from '../services/auth.service';
+// import { ActivatedRoute, Router } from '@angular/router';
+// // import { userInfo } from 'os';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,10 +13,6 @@ export class ShoppingCartComponent implements OnInit {
   subTotal: any;
   totalTax: any;
  grandTotal: any;
-
-
-
-
   quantityProduct: Array<any> = [];
 
   allTheProducts: Array<any> = [];
@@ -29,22 +25,22 @@ export class ShoppingCartComponent implements OnInit {
     private myActivated: ActivatedRoute,
     private myRoute: Router) { }
 
-  ngOnInit() {
-    this.myAuth.isLoggedIn()
-      .toPromise()
-      .then(res => {
-        this.user = JSON.parse(this.myAuth.currentUser._body);
-      })
-      .catch(err => {
-        console.log('Error with user in shopping cart: ', err);
-        // this.myRoute.navigate(['/login']);
-      });
 
-    this.myActivated.params.subscribe((params) => {
-      this.showTheCartThings(params['id']);
-    });
-  }
+//   ngOnInit() {
+//     this.myAuth.isLoggedIn()
+//       .toPromise()
+//       .then(res => {
+//         this.user = JSON.parse(this.myAuth.currentUser._body);
+//       })
+//       .catch(err => {
+//         console.log('Error with user in shopping cart: ', err);
+//         // this.myRoute.navigate(['/login']);
+//       });
 
+//     this.myActivated.params.subscribe((params) => {
+//       this.showTheCartThings(params['id']);
+//     });
+//   }
   showTheCartThings(userId) {
     this.myCartService.getTheCartContent(userId)
       .then(res => {
@@ -78,9 +74,6 @@ export class ShoppingCartComponent implements OnInit {
         console.log('error while getting the cart content: ', err);
       });
 
-  }
-
-
   increaseQuantity(name) {
     const found = this.quantityProduct.find((oneProduct) => {
       return oneProduct.name === name;
@@ -99,10 +92,6 @@ export class ShoppingCartComponent implements OnInit {
         return oneProduct.name === name;
       });
         found.realQuantity -- ;
-
     }
-
   removeCartItem(removeButton) {
   }
-
-}

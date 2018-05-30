@@ -22,18 +22,6 @@ export class MerchandiseDetailsComponent implements OnInit {
   user: any;
   isFormShowing: Boolean = false;
   isSeller: Boolean = false;
-  // seller: any = '';
-
-  //   hey(seller) => {
-  //   if (seller === this.user) {
-  //     this.isSeller = true;
-  //   }
-  //   console.log('Username:', this.user.username, 'Seller: ', seller.username);
-  // }
-
-
-
-
 
   constructor(private authService: AuthService,
     private cartService: CartService,
@@ -60,7 +48,7 @@ export class MerchandiseDetailsComponent implements OnInit {
     if (this.theMerchandise.seller[0] === this.user.username) {
       return true;
     }
-    console.log('Username:', this.user.username, 'Seller: ', this.theMerchandise.seller[0]);
+    // console.log('Username:', this.user.username, 'Seller: ', this.theMerchandise.seller[0]);
   }
 
   // cartButtonShown(seller) {
