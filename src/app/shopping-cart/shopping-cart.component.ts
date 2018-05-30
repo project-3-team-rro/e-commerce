@@ -54,6 +54,7 @@ export class ShoppingCartComponent implements OnInit {
 
         this.totalTax = this.subTotal * (this.taxRate);
 
+
         this.grandTotal = this.subTotal + this.totalTax + this.shippingRate;
 
 

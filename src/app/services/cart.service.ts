@@ -47,9 +47,6 @@ export class CartService {
   //     }, 0);
   //   });
   // }
-
-
-
   // public getTotalAmount(): Observable<number> {
   //   return this.itemsInCartSubject.map((items: Merchandise[]) => {
   //     return items.reduce((prev, curr: Merchandise) => {
