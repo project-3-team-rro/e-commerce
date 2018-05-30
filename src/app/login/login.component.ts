@@ -32,13 +32,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/login']);
         } else {
           console.log('user there: ', this.user);
-
-
-          // this.router.navigate(['/profile']);
-
-
-          // this.router.navigate(['/']);
-
         }
       })
       .catch(err => {
@@ -50,7 +43,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.formInfo)
       .subscribe(
-        (user) => this.user = this.router.navigate(['/merchandise']),
+        (user) => this.user = this.router.navigate(['/landing-page']),
         (err) => this.error = err,
       // (user) => console.log('user signed in' user)
     );

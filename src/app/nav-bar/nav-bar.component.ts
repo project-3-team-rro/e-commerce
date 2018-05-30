@@ -54,7 +54,7 @@ export class NavBarComponent implements OnInit {
       })
       .catch(err => {
         console.log('error in ngOnInit in merchendise details: ', err);
-        this.myRouter.navigate(['/login']);
+        // this.myRouter.navigate(['/merchandise']);
       });
     // to here every component that needs to have user needs to have this exactly the same
     this.route.params

@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
 import { CartService } from './services/cart.service';
@@ -21,49 +20,50 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CommentsComponent } from './comments/comments.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
-
-
 import { IconModule } from 'angular-icon';
 import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'index', pathMatch: 'full' },
-  { path: 'merchandise', component: MerchandiseListComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'merchandise/:id', component: MerchandiseDetailsComponent },
-  // { path: 'user/:id/cart', component: ShoppingCartComponent },
-  { path: 'profile', component: UserProfileComponent }
+	{ path: '', redirectTo: 'landing-page', pathMatch: 'full' },
+	{ path: 'merchandise', component: MerchandiseListComponent },
+	{ path: 'signup', component: SignupComponent },
+	{ path: 'login', component: LoginComponent },
+	{ path: 'merchandise/:id', component: MerchandiseDetailsComponent },
+	// { path: 'user/:id/cart', component: ShoppingCartComponent },
+	{ path: 'profile', component: UserProfileComponent },
+	{ path: 'landing-page', component: LandingPageComponent }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SearchComponent,
-    MerchandiseListComponent,
-    MerchandiseDetailsComponent,
-    // ShoppingCartComponent,
-    SignupComponent,
-    LoginComponent,
-    UserProfileComponent,
-    NavBarComponent,
-    FooterComponent,
-    CommentsComponent,
-  ],
-  imports: [
-    HttpModule,
-    HttpClientModule,
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(routes),
-    BrowserAnimationsModule,
-    AngularFontAwesomeModule,
-    HttpClientModule,
-    IconModule,
-    MatIconModule
-  ],
-  providers: [MerchandiseService, AuthService, CartService],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		SearchComponent,
+		MerchandiseListComponent,
+		MerchandiseDetailsComponent,
+		// ShoppingCartComponent,
+		SignupComponent,
+		LoginComponent,
+		UserProfileComponent,
+		NavBarComponent,
+		FooterComponent,
+		CommentsComponent,
+		LandingPageComponent,
+	],
+	imports: [
+		HttpModule,
+		HttpClientModule,
+		BrowserModule,
+		FormsModule,
+		RouterModule.forRoot(routes),
+		BrowserAnimationsModule,
+		AngularFontAwesomeModule,
+		HttpClientModule,
+		IconModule,
+		MatIconModule
+	],
+	providers: [MerchandiseService, AuthService, CartService],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

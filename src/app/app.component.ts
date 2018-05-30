@@ -63,6 +63,3 @@ export class AppComponent implements OnInit {
     // this.form = !this.form;
   }
 }
-
-
-

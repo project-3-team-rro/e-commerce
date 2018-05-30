@@ -75,12 +75,12 @@ export class ShoppingCartComponent implements OnInit {
         console.log('error while getting the cart content: ', err);
       });
 
-  increaseQuantity(name) {
-    const found = this.quantityProduct.find((oneProduct) => {
-      return oneProduct.name === name;
-    });
-      found.realQuantity += 1;
-  }
+  // increaseQuantity(name) {
+  //   const found = this.quantityProduct.find((oneProduct) => {
+  //     return oneProduct.name === name;
+  //   });
+  //     found.realQuantity += 1;
+  // }
   //   let value = parseInt(document.getElementById('number').value, 10);
   //   value = isNaN(value) ? 0 : value;
   //   value++;
@@ -88,11 +88,11 @@ export class ShoppingCartComponent implements OnInit {
 
   // }
 
-    decreaseQuantity(name) {
-      const found = this.quantityProduct.find((oneProduct) => {
-        return oneProduct.name === name;
-      });
-        found.realQuantity -- ;
-    }
-  removeCartItem(removeButton) {
-  }
+  //   decreaseQuantity(name) {
+  //     const found = this.quantityProduct.find((oneProduct) => {
+  //       return oneProduct.name === name;
+  //     });
+  //       found.realQuantity -- ;
+  //   }
+  // removeCartItem(removeButton) {
+  // }
