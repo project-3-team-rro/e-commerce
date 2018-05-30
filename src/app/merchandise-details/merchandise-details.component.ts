@@ -126,9 +126,12 @@ export class MerchandiseDetailsComponent implements OnInit {
   }
 
   addToCart(product, user) {
-    console.log('what is product: ', product);
+    // console.log('what is product: ', product, "and the user is: ", user);
     this.cartService.addToCart(product, user)
-      .then(res => console.log('what is this in the component: ', res))
+      .then(res =>  {
+        this.myRouter.navigate(['/user', user._id, 'cart']);
+        res.json();
+      })
       .catch(err => console.log('error in add to cart: ', err));
   }
 

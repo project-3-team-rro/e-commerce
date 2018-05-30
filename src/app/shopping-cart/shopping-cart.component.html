@@ -12,18 +12,18 @@
         <th>Total Price</th>
         <th></th>
     </tr>
-    <tr *ngFor="let oneProduct of allTheProducts">
+    <tr *ngFor="let oneProduct of quantityProduct">
         <td>  <img [src]="oneProduct.picture" height="200" width="100"></td>
         <td>{{oneProduct.name}}</td>
         <td>{{oneProduct.description}}</td>
         <td>{{oneProduct.price}}</td>
-        <td>  <input type="number" id="number" value="0" /></td>
-        <td>{{oneProduct.price * oneProduct.quantity}}</td>
+        <td>  <input type="number" id="number" value="{{oneProduct.realQuantity}}" /></td>
+        <td>{{oneProduct.price * oneProduct.realQuantity }}</td>
         <td>
-            <button mat-icon-button (click)="increaseQuantity()">
+            <button mat-icon-button (click)="increaseQuantity(oneProduct.name)">
                 <mat-icon>add_box</mat-icon>
             </button>
-            <button mat-icon-button (click)="decreaseQuantity(cartItem)">
+            <button mat-icon-button (click)="decreaseQuantity(oneProduct.name)">
                 <mat-icon >indeterminate_check_box</mat-icon>
             </button>
             <button mat-icon-button (click)="removeCartItem()">
@@ -37,11 +37,11 @@
 <div class="totals">
         <div class="totals-item">
           <label>Subtotal</label>
-          <div class="totals-value" id="cart-subtotal">71.97</div>
+          <div class="totals-value" id="cart-subtotal">{{subTotal}}</div>
         </div>
         <div class="totals-item">
-          <label>Tax (5%)</label>
-          <div class="totals-value" id="cart-tax">3.60</div>
+          <label>Tax (7%)</label>
+          <div class="totals-value" id="cart-tax">{{totalTax}}</div>
         </div>
         <div class="totals-item">
           <label>Shipping</label>
@@ -49,7 +49,7 @@
         </div>
         <div class="totals-item totals-item-total">
           <label>Grand Total</label>
-          <div class="totals-value" id="cart-total">90.57</div>
+          <div class="totals-value" id="cart-total">{{grandTotal}}</div>
         </div>
      
           
