@@ -9,11 +9,11 @@
     <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
     <!-- <img [src]="theMerchandise.picture" alt="theMerchandise.name"> -->
     <h4>{{theMerchandise.description}}</h4>
-    <hr class="line">
+    <hr>
 
 
     <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
-    <button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
+    <!-- <button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
 
     <form *ngIf="isFormShowing">
       <textarea class="text-area" name="comment" [(ngModel)]="newComment.content" rows="4" cols="50" maxlength="200">
@@ -26,8 +26,11 @@
         <p>{{oneComment.content}}</p>
         <hr>
       </div>
-    </div>
+    </div> -->
 
+    <app-new-comment></app-new-comment>
+    <hr>
+    <app-comments></app-comments>
 
 
     <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
@@ -53,9 +56,10 @@
   <div *ngIf='userEqualSeller()'>
 
     <!-- LINE 26 IS TEMPORARY FIX ASK SOMBODY FOR HELP -->
-    <a href="/merchandise">
-      <button class="btn btn-outline-dark" (click)="deleteItem(theMerchandise._id)">Delete Item</button>
-    </a>
+    <!-- <a [routerLink]="['/user/', user._id, 'cart']">Shopping cart</a> -->
+    <!-- <a [routerLink]="['/merchandise']"> -->
+    <button class="btn btn-outline-dark" (click)="deleteItem(theMerchandise._id)">Delete Item</button>
+    <!-- </a> -->
     <button class="btn btn-outline-dark" (click)="toggleForm()">
       Edit Item
     </button>

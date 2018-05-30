@@ -16,6 +16,8 @@ h1 {
 .merchandise-information {
   width: 50%;
   color: #a7adba;
+  display: flex;
+  flex-direction: column;
 }
 
 .edit {
@@ -32,7 +34,7 @@ h1 {
   height: auto;
 }
 
-.line {
+hr {
   background: #a7adba;
 }
 

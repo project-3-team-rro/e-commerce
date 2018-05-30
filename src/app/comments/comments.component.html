@@ -1,4 +1,4 @@
-<button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
+<!-- <button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
 
 <form *ngIf="showForm">
   <textarea class="text-area" name="comment" [(ngModel)]="newComment.content" rows="4" cols="50" maxlength="200">
@@ -11,4 +11,19 @@
     <p>{{oneComment.content}}</p>
     <hr>
   </div>
+</div> -->
+<!-- <h1>{{comments.content}}</h1> -->
+
+<div class="comments" *ngIf="comments">
+  <span *ngFor="let comment of comments">
+    <!-- <a [routerLink]="['/threads', thread._id]">{{ thread.title }}</a> -->
+    {{ comment.content }}
+    <br>{{comment.date}}
+    <hr>
+  </span>
+</div>
+
+
+<div *ngIf="message">
+  {{ message }}
 </div>
