@@ -34,7 +34,7 @@
             <button (click)="logout()"> logout </button>
         </li>
         <li>
-        
+          <p>welcome, {{user.username}}</p>
           <a [routerLink]="['/user', user._id, 'cart']"><mat-icon>shopping_cart</mat-icon> </a> {{cartQuantity}} 
         </li>
       </ul>

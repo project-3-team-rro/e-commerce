@@ -11,6 +11,7 @@ import { MerchandiseService } from '../services/merchandise.service';
 import {CartService} from '../services/cart.service';
 
 
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -34,10 +35,13 @@ export class NavBarComponent implements OnInit {
   theMerchandise: any = {};
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private authService: AuthService,
     private myRouter: Router, private route: ActivatedRoute, private merchandiseService: MerchandiseService,
-    private cartService: CartService ) {
+    private cartService: CartService, private router: Router ) {
     iconRegistry.addSvgIcon(
       'cart',
     sanitizer.bypassSecurityTrustUrl('assets/cart.svg'));
+
+
+
   }
 
   // unnecessary
@@ -55,24 +59,18 @@ export class NavBarComponent implements OnInit {
     //   console.log('<><><><><><><><><><><><><', res);
     // });
 
- 
-
-
 
     // from here
     this.authService.isLoggedIn()
       .toPromise()
-      .then(() => {
+      .then((response) => {
         // don't forget to declare user up!
-        this.user = this.authService.currentUser;
-
+        this.user = response;
         this.cartService.getTheCartContent(this.authService.currentUser._id)
         .then((res) => {
           this.cartQuantity = res.length;
-          console.log('<><><><><><><><><><><><><', res.length);
         });
 
-    
       })
       .catch(err => {
         console.log('error in ngOnInit in merchendise details: ', err);
@@ -93,6 +91,9 @@ export class NavBarComponent implements OnInit {
         () => {
           this.user = null;
           this.formInfo = {};
+          this.cartQuantity = null;
+          this.router.navigate(['/login']);
+          this.ngOnInit();
         },
         (err) => this.error = err
       );

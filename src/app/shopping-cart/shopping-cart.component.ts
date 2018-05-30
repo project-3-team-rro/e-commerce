@@ -33,7 +33,7 @@ export class ShoppingCartComponent implements OnInit {
     this.myAuth.isLoggedIn()
       .toPromise()
       .then(res => {
-        this.user = JSON.parse(this.myAuth.currentUser._body);
+        this.user = this.myAuth.currentUser;
       })
       .catch(err => {
         console.log('Error with user in shopping cart: ', err);
@@ -139,7 +139,7 @@ updateTotal(){
     const found = this.allTheProducts.find((oneProduct) => {
       return oneProduct.name === name;
     });
-      found.realQuantity.pop(name);
+      found.realQuantity.inde(name);
   }
 
 }

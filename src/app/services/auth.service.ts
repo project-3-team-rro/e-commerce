@@ -5,6 +5,7 @@ import 'rxjs/add/operator/catch';
 // import { Observable } from 'rxjs/Observable';
 // tslint:disable-next-line:import-blacklist
 import { Observable } from 'rxjs/Rx';
+import { BehaviorSubject} from 'rxjs';
 @Injectable()
 export class AuthService {
 
@@ -37,7 +38,9 @@ export class AuthService {
     return this.http.delete(`http://localhost:3000/api/logout`, { withCredentials: true })
       .map(res => {
         console.log('here');
+        this.temporaryUser = null;
         this.currentUser = null;
+
         res.json();
       })
       .catch(this.handleError);
@@ -48,9 +51,10 @@ export class AuthService {
       .map(res => {
         this.temporaryUser = res;
         this.currentUser = JSON.parse(this.temporaryUser._body);
+
         // this.currentUser = res.json();
         // console.log('res in the service: ', this.currentUser);
-        res.json();
+        return this.currentUser;
       })
       .catch(this.handleError);
   }
