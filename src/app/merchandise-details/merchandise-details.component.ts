@@ -18,21 +18,15 @@ export class MerchandiseDetailsComponent implements OnInit {
   public merchandise: Merchandise = {};
   theMerchandise: any = {};
   theUpdate: any = {};
-  // this is the user that we gonna use in this component ;
   user: any;
   isFormShowing: Boolean = false;
   isSeller: Boolean = false;
-  // seller: any = '';
 
-  //   hey(seller) => {
-  //   if (seller === this.user) {
-  //     this.isSeller = true;
-  //   }
-  //   console.log('Username:', this.user.username, 'Seller: ', seller.username);
-  // }
-
-
-
+  comments: Array<any> = [];
+  newComment: any = {
+    content: '',
+    id: '',
+  };
 
 
   constructor(private authService: AuthService,
@@ -60,7 +54,7 @@ export class MerchandiseDetailsComponent implements OnInit {
     if (this.theMerchandise.seller[0] === this.user.username) {
       return true;
     }
-    console.log('Username:', this.user.username, 'Seller: ', this.theMerchandise.seller[0]);
+    // console.log('Username:', this.user.username, 'Seller: ', this.theMerchandise.seller[0]);
   }
 
   // cartButtonShown(seller) {
@@ -123,13 +117,41 @@ export class MerchandiseDetailsComponent implements OnInit {
         // this.myRouter.navigate(['/login']);
       });
 
+    // console.log('-----------------------------------MERCHANDISE!!!!!!!!!!!!!!!!!!!!!!', this.theMerchandise);
+
   }
 
   addToCart(product, user) {
-    console.log('what is product: ', product);
+    // console.log('what is product: ', product, "and the user is: ", user);
     this.cartService.addToCart(product, user)
-      .then(res => console.log('what is this in the component: ', res))
+      .then(res =>  {
+        this.myRouter.navigate(['/user', user._id, 'cart']);
+        res.json();
+      })
       .catch(err => console.log('error in add to cart: ', err));
   }
+
+
+
+  ////////////////////////////////////////////////////////
+
+  // addNew(id): void {
+  //   this.merchandiseService.createComment(this.newComment).subscribe(foo => {
+  //     this.newComment = {};
+  //     console.log('yooooo', this.newComment);
+  //     this.toggleForm();
+  //   });
+  //   // this.comments.push(newOne)
+  //   // this.newComment.content = '';
+  // }
+  addNew(): void {
+    const newOne = { content: this.newComment.content };
+    this.comments.push(newOne);
+    this.newComment.content = '';
+    this.toggleForm();
+    console.log('--------------------COMMENTS-----------------', this.comments);
+  }
+
+
 
 }

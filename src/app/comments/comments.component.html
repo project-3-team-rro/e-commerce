@@ -1,28 +1,14 @@
-<!-- <form>
-  <h3>Add a Comment</h3>
-  <p>Title</p>
-  <input [(ngModel)]="newComment.title" name="blah" />
-  <p>Content</p>
-  <input [(ngModel)]="newComment.content" name="whatever" />
-
-  <button (click)="addNew()">Add Comment</button>
-
-</form>
-
-<div *ngFor="let oneComment of comments">
-  <app-single-comment [oneSingleComment]="oneComment" (commentBeingDeleted)="deleteTheComment($event)"></app-single-comment>
-</div> -->
-
-<button type="button" (click)="toggleForm()">Create New Comment</button>
+<button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
 
 <form *ngIf="showForm">
-  <p>Content</p>
-  <input [(ngModel)]="newComment.content" name="whatever" />
-
-  <button (click)="addNew()">Add Comment</button>
+  <textarea class="text-area" name="comment" [(ngModel)]="newComment.content" rows="4" cols="50" maxlength="200">
+  </textarea>
+  <button type="button" class="btn btn-outline-dark" (click)="addNew() ">Add Comment</button>
 </form>
 
-<div *ngFor="let oneComment of comments">
+<div *ngIf="!showForm">
+  <div class="comments" *ngFor="let oneComment of comments">
+    <p>{{oneComment.content}}</p>
+    <hr>
+  </div>
 </div>
-
-<p>comments work</p>
