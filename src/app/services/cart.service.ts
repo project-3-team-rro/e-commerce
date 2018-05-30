@@ -10,6 +10,12 @@ export class CartService {
   private itemsInCartSubject: BehaviorSubject<Merchandise[]> = new BehaviorSubject([]);
   private itemsInCart: Merchandise[] = [];
 
+  public cartQuantity: BehaviorSubject<Number> = new BehaviorSubject(0);
+  private ctqty = 0;
+
+
+
+
   constructor(private myHttp: Http) {
     // this.itemsInCartSubject.subscribe(_ => this.itemsInCart = _);
   }
@@ -19,7 +25,11 @@ export class CartService {
     console.log('ids in the service: ', ids);
     return this.myHttp.post(`http://localhost:3000/api/cart`, ids)
       .toPromise()
-      .then(res => res.json());
+      .then(res => {
+        this.ctqty ++;
+        this.cartQuantity.next(this.ctqty);
+        res.json();
+      });
     // this.itemsInCartSubject.next([...this.itemsInCart, item]);
   }
 

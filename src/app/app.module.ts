@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {MaterialModule} from './material.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -63,7 +64,12 @@ const routes: Routes = [
     AngularFontAwesomeModule,
     HttpClientModule,
     IconModule,
-    MatIconModule
+    MatIconModule,
+    MaterialModule
+  ],
+
+  exports: [
+    MaterialModule
   ],
   providers: [MerchandiseService, AuthService, CartService],
   bootstrap: [AppComponent]

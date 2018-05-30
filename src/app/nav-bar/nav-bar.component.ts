@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MaterialModule} from '../material.module';
+
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { IconModule } from 'angular-icon';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -6,10 +8,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MerchandiseService } from '../services/merchandise.service';
+import {CartService} from '../services/cart.service';
 
 
-declare var jquery: any;
-declare var $: any;
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -27,10 +28,13 @@ export class NavBarComponent implements OnInit {
 
   title = 'app';
 
+  cartQuantity: any;
+
   form: Boolean = true;
   theMerchandise: any = {};
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private authService: AuthService,
-    private myRouter: Router, private route: ActivatedRoute, private merchandiseService: MerchandiseService) {
+    private myRouter: Router, private route: ActivatedRoute, private merchandiseService: MerchandiseService,
+    private cartService: CartService ) {
     iconRegistry.addSvgIcon(
       'cart',
     sanitizer.bypassSecurityTrustUrl('assets/cart.svg'));
@@ -42,14 +46,33 @@ export class NavBarComponent implements OnInit {
       .subscribe((res) => {
         this.theMerchandise = res;
       });
-  }
+  } 
   ngOnInit() {
+
+    // this.cartService.cartQuantity
+    // .subscribe((res) => {
+    //   this.cartQuantity = res;
+    //   console.log('<><><><><><><><><><><><><', res);
+    // });
+
+ 
+
+
+
     // from here
     this.authService.isLoggedIn()
       .toPromise()
       .then(() => {
         // don't forget to declare user up!
-        this.user = JSON.parse(this.authService.currentUser._body);
+        this.user = this.authService.currentUser;
+
+        this.cartService.getTheCartContent(this.authService.currentUser._id)
+        .then((res) => {
+          this.cartQuantity = res.length;
+          console.log('<><><><><><><><><><><><><', res.length);
+        });
+
+    
       })
       .catch(err => {
         console.log('error in ngOnInit in merchendise details: ', err);
@@ -75,5 +98,6 @@ export class NavBarComponent implements OnInit {
       );
     this.form = true;
   }
+
 
 }

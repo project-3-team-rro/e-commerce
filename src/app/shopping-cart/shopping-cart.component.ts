@@ -45,21 +45,49 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
+
+
+updateTotal(){
+
+
+  this.subTotal = this.quantityProduct.reduce((a, b) => {
+    return a + (b.price * b.realQuantity);
+  }, 0);
+
+  this.totalTax = this.subTotal * (this.taxRate);
+
+  this.grandTotal = this.subTotal + this.totalTax + this.shippingRate;
+
+  console.log("Hello you", this.subTotal);
+
+
+}
+
+
+
+  calculateTotal() {
+
+    this.subTotal = this.allTheProducts.reduce((a, b) => {
+      return a + b.price;
+    }, 0);
+
+    this.totalTax = this.subTotal * (this.taxRate);
+
+    this.grandTotal = this.subTotal + this.totalTax + this.shippingRate;
+
+    console.log("Hello you", this.subTotal);
+  }
+
   showTheCartThings(userId) {
+
+    
     this.myCartService.getTheCartContent(userId)
       .then(res => {
         console.log('whatttttt: ========>  ', res);
         this.allTheProducts = res;
         console.log(this.allTheProducts);
 
-        this.subTotal = this.allTheProducts.reduce((a, b) => {
-          return a + b.price;
-        }, 0);
-
-        this.totalTax = this.subTotal * (this.taxRate);
-
-        this.grandTotal = this.subTotal + this.totalTax + this.shippingRate;
-
+        this.calculateTotal();
 
         this.allTheProducts.forEach((product) => {
           const found = this.quantityProduct.find((oneProduct) => {
@@ -78,6 +106,7 @@ export class ShoppingCartComponent implements OnInit {
         console.log('error while getting the cart content: ', err);
       });
 
+
   }
 
 
@@ -86,6 +115,7 @@ export class ShoppingCartComponent implements OnInit {
       return oneProduct.name === name;
     });
       found.realQuantity += 1;
+      this.updateTotal();
   }
   //   let value = parseInt(document.getElementById('number').value, 10);
   //   value = isNaN(value) ? 0 : value;
@@ -99,10 +129,17 @@ export class ShoppingCartComponent implements OnInit {
         return oneProduct.name === name;
       });
         found.realQuantity -- ;
+        this.updateTotal();
 
     }
 
-  removeCartItem(removeButton) {
+  removeCartItem(name) {
+
+
+    const found = this.allTheProducts.find((oneProduct) => {
+      return oneProduct.name === name;
+    });
+      found.realQuantity.pop(name);
   }
 
 }
