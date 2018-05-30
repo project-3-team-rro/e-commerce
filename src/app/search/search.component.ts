@@ -7,28 +7,27 @@ import { MerchandiseListComponent } from '../merchandise-list/merchandise-list.c
 
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+	selector: 'app-search',
+	templateUrl: './search.component.html',
+	styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
 
-  search: String = '';
-  resultsArray: Array<any> = [];
-  merchandise: Array<any> = [];
+	search: String = '';
+	resultsArray: Array<any> = [];
+	merchandise: Array<any> = [];
 
-  constructor(private merchandiseList: MerchandiseListComponent, private merchandiseService: MerchandiseService) { }
+	constructor(private merchandiseList: MerchandiseListComponent, private merchandiseService: MerchandiseService) { }
 
-  filterMerchandise() {
-    console.log(this.search.toLocaleLowerCase());
-    this.resultsArray = this.merchandise.filter(product => {
-      return product.name.toLowerCase().includes(this.search.toLowerCase());
-    });
-  }
+	filterMerchandise() {
+		console.log(this.search.toLocaleLowerCase());
+		this.resultsArray = this.merchandise.filter(product => {
+			return product.name.toLowerCase().includes(this.search.toLowerCase());
+		});
+	}
 
-  ngOnInit() {
-    this.merchandise = this.merchandiseList.allTheMerchandise;
-    this.resultsArray = this.merchandise;
-  }
-
+	ngOnInit() {
+		this.merchandise = this.merchandiseList.allTheMerchandise;
+		this.resultsArray = this.merchandise;
+	}
 }

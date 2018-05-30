@@ -20,14 +20,12 @@
 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="filterMerchandise()">Search</button>
       </form>
 
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-
-
         <li><a [routerLink]="['/signup']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a [routerLink]="['/login']"><span ></span>  Login</a></li>
         <li *ngIf="user">
@@ -38,9 +36,6 @@
           <a [routerLink]="['/user', user._id, 'cart']"><mat-icon>shopping_cart</mat-icon> </a> {{cartQuantity}} 
         </li>
       </ul>
-     
-
-      
 
   </div>
 </nav>
