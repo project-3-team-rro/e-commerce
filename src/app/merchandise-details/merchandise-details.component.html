@@ -15,18 +15,21 @@
     <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
     <button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
 
-    <form *ngIf="!showForm">
+    <form *ngIf="isFormShowing">
       <textarea class="text-area" name="comment" [(ngModel)]="newComment.content" rows="4" cols="50" maxlength="200">
       </textarea>
-      <button type="button" class="btn btn-outline-dark" (click)="addNew() ">Add Comment</button>
+      <button type="button" class="btn btn-outline-dark" (click)="addNew(theMerchandise._id) ">Add Comment</button>
     </form>
 
-    <div *ngIf="showForm">
+    <div *ngIf="!isFormShowing">
       <div class="comments" *ngFor="let oneComment of comments">
         <p>{{oneComment.content}}</p>
         <hr>
       </div>
     </div>
+
+
+
     <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
 
   </div>

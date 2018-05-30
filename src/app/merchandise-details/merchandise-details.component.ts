@@ -18,10 +18,16 @@ export class MerchandiseDetailsComponent implements OnInit {
   public merchandise: Merchandise = {};
   theMerchandise: any = {};
   theUpdate: any = {};
-  // this is the user that we gonna use in this component ;
   user: any;
   isFormShowing: Boolean = false;
   isSeller: Boolean = false;
+
+  comments: Array<any> = [];
+  newComment: any = {
+    content: '',
+    id: '',
+  };
+
 
   constructor(private authService: AuthService,
     private cartService: CartService,
@@ -111,6 +117,8 @@ export class MerchandiseDetailsComponent implements OnInit {
         // this.myRouter.navigate(['/login']);
       });
 
+    // console.log('-----------------------------------MERCHANDISE!!!!!!!!!!!!!!!!!!!!!!', this.theMerchandise);
+
   }
 
   addToCart(product, user) {
@@ -118,6 +126,21 @@ export class MerchandiseDetailsComponent implements OnInit {
     this.cartService.addToCart(product, user)
       .then(res => console.log('what is this in the component: ', res))
       .catch(err => console.log('error in add to cart: ', err));
+  }
+
+
+
+  ////////////////////////////////////////////////////////
+
+  addNew(id): void {
+    this.merchandiseService.createComment(this.newComment).subscribe(foo => {
+      this.newComment = {};
+      console.log('yooooo', this.newComment);
+      this.toggleForm();
+    });
+    // this.comments.push(newOne);
+    // this.newComment.content = '';
+
   }
 
 }
