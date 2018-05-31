@@ -40,7 +40,4 @@ export class NewCommentComponent implements OnInit {
   }
 
 
-
-
-
 }
