@@ -1,14 +1,15 @@
 <!-- <app-search></app-search> -->
-
-<div class="row mx-auto">
-	<div *ngFor="let item of allTheMerchandise" style="width: 20rem;" class="card mx-3">
-		<img class="mx-auto mt-3 card-img-top" [src]='item.picture' alt="{{item.name}}">
-		<div class="card-body">
-			<h4 class="card-title">{{item.name}}</h4>
-			<p class="card-text">${{item.price}}</p>
-			<p class="card-text">{{item.description}}</p>
-			<p class="card-text">{{item.new}}</p>
-			<a [routerLink]="['/merchandise', item._id]" class="btn btn-lg btn-info">Details</a>
+<div class="container mx-auto">
+	<div class="row mx-auto">
+		<div *ngFor="let item of allTheMerchandise" style="width: 20rem;" class="card m-3">
+			<img class="mx-auto mt-3 card-img-top" [src]='item.picture' alt="{{item.name}}">
+			<div class="card-body">
+				<h4 class="card-title">{{item.name}}</h4>
+				<p class="card-text">${{item.price}}</p>
+				<p class="card-text">{{item.description}}</p>
+				<p class="card-text">{{item.new}}</p>
+				<a [routerLink]="['/merchandise', item._id]" class="btn btn-lg btn-info">Details</a>
+			</div>
 		</div>
 	</div>
 </div>

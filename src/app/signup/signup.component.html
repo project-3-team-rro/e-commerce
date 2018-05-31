@@ -1,23 +1,30 @@
-<div class="container">
-  <div *ngIf="!user">
-    <h1>Sign Up</h1>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+<div class="extra-top-margin">
+    <!-- <div *ngIf="!user"> -->
+    <div class="card mx-auto text-center border-secondary" style="width: 55%">
+      <div class="card-body">
+        <h2>Sign Up</h2><br>
+  
+        <form class="form-inline d-flex justify-content-around flex-column">
+  
+          <!-- <label for="inlineFormInputGroup">Username</label> -->
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <input type="text" [(ngModel)]="formInfo.username" name="username" class="form-control form-control-lg" id="inlineFormInputGroup" placeholder="Username">
+          </div>
+          <br>
+  
+          <!-- <label for="inlineFormInputGroup">Password</label> -->
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <input [(ngModel)]="formInfo.password" name="password" class="form-control form-control-lg" type="password" placeholder="Password">
+          </div>
+          <br>
+          
+          <div>
+            <button type="submit" class="btn btn-lg btn-primary" (click)="signup()">Sign Up</button>
+          </div><br>
+
+          Have an account? <a [routerLink]="['/login']"> Login </a>
+  
+        </form>
       </div>
-      <input type="text" [(ngModel)]="formInfo.username" name="username" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
-      </div>
-      <input type="password" [(ngModel)]="formInfo.password" name="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
-    <button type="button" class="btn btn-primary" (click)="signup()">Sign In</button>
-    <br>
-    <br>
-    <div>
-      Have an account?
-      <a [routerLink]="['/login']"> Login </a>
     </div>
   </div>
