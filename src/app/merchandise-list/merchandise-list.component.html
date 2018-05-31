@@ -1,72 +1,17 @@
 <!-- <app-search></app-search> -->
 
 <div class="row mx-auto">
-	<div *ngFor="let item of allTheMerchandise" style="width: 20rem;" class="card mx-3">
-		<img class="mx-auto mt-3 card-img-top" [src]='item.picture' alt="{{item.name}}">
-		<div class="card-body">
-			<h4 class="card-title">{{item.name}}</h4>
-			<p class="card-text">${{item.price}}</p>
-			<p class="card-text">{{item.description}}</p>
-			<p class="card-text">{{item.new}}</p>
-			<a [routerLink]="['/merchandise', item._id]" class="btn btn-lg btn-info">Details</a>
-		</div>
-	</div>
+  <div *ngFor="let item of allTheMerchandise" style="width: 20rem;" class="card mx-3">
+    <img class="mx-auto mt-3 card-img-top" [src]='item.picture' alt="{{item.name}}">
+    <div class="card-body">
+      <h4 class="card-title">{{item.name}}</h4>
+      <p class="card-text">${{item.price}}</p>
+      <p class="card-text">{{item.description}}</p>
+      <p class="card-text">{{item.new}}</p>
+      <a [routerLink]="['/merchandise', item._id]" class="btn btn-lg btn-info">Details</a>
+    </div>
+  </div>
+  <app-create-item></app-create-item>
 </div>
 
 <!--  -->
-
-<div>
-	<button (click)="toggleForm() ">
-		<h1> CREATE</h1>
-	</button>
-	<form *ngIf="isFormShowing ">
-		<div class="form-group ">
-			<label for="exampleFormControlInput1 ">Name of Product</label>
-			<input [(ngModel)]="newItem.name " type="text " name="name " class="form-control " id="exampleFormControlInput1
-	" placeholder="Product Name ">
-		</div>
-
-		<div class="form-group ">
-			<label for="exampleFormControlInput1 ">Picture</label>
-			<input [(ngModel)]="newItem.picture " type="text " name="picture " class="form-control " id="exampleFormControlInput1
-	" placeholder="Picture url https://www.askideas.com/media/73/Loser-Facebook-Cover-Picture.jpg ">
-		</div>
-
-		<div class="form-group ">
-			<label for="exampleFormControlInput1 ">Price</label>
-			<input [(ngModel)]="newItem.price " type="text " name="price " class="form-control " id="exampleFormControlInput1
-	" placeholder="Price ">
-		</div>
-
-		<div class="form-group ">
-			<label for="exampleFormControlInput1 ">Quantity</label>
-			<input [(ngModel)]="newItem.quantity " type="text " name="quantity " class="form-control " id="exampleFormControlInput1
-	" placeholder="Quantity ">
-		</div>
-
-		<div class="form-group ">
-			<label for="exampleFormControlSelect1 ">New Or Used?</label>
-			<select [(ngModel)]="newItem.new " class=" form-control " name="new or used " id="exampleFormControlSelect1 ">
-				<option>New</option>
-				<option>Used</option>
-			</select>
-		</div>
-
-		<div class="form-group ">
-			<label for="exampleFormControlSelect2 ">Category</label>
-			<select [(ngModel)]="newItem.category " name="category " multiple class="form-control " id="exampleFormControlSelect2 ">
-				<option value="Electronics ">Electronics</option>
-				<option value="Home Furnishing ">Home Furnishing</option>
-				<option value="Appliances ">Appliances</option>
-				<option value="Handmade ">Handmade</option>
-			</select>
-		</div>
-
-		<div class="form-group ">
-			<label for="exampleFormControlTextarea1 ">Description</label>
-			<input [(ngModel)]="newItem.description " name="description " class="form-control " type="text " rows="3 ">
-		</div>
-
-		<button type="button " (click)="addNewItem() ">Submit</button>
-	</form>
-</div>
