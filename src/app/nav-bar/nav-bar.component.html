@@ -41,10 +41,15 @@
         <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li *ngIf="user">
             <button (click)="logout()"> logout </button>
+           <p>
+              Welcome, {{ user.username }}
+           </p> 
         </li>
         <li>
-          <!-- {{ user.username }}
-          <a [routerLink]="['/user', user._id, 'cart']">shopping_cart</a> -->
+
+        </li>
+        <li>
+          <a [routerLink]="['/user', user._id, 'cart']"><i class="fa fa-shopping-cart"></i> </a>{{cartQuantity}}
         </li>
       </ul>
   </div>

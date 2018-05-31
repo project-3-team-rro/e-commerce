@@ -1,3 +1,8 @@
+<div *ngIf="user">
+  Welcome, {{ user.username }}!
+  <a [routerLink]="['/user/', user._id, 'cart']">Shopping cart</a>
+</div>
+
 <!-- Page Content -->
 <div class="container">
 	<div class="row">
@@ -33,6 +38,9 @@
 					<small class="text-muted">Posted by Anonymous on 3/1/17</small>
 					<hr>
 					<a href="#" class="btn btn-success">Leave a Review</a>
+					<button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
+						Add to cart
+					</button>
 				</div>
 			</div>
 			<!-- /.card -->
