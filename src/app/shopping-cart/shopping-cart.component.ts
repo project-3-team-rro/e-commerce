@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
-import { AuthService } from '../services/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
-// import { userInfo } from 'os';
+// import { Component, OnInit } from '@angular/core';
+// import { CartService } from '../services/cart.service';
+// import { AuthService } from '../services/auth.service';
+// import { ActivatedRoute, Router } from '@angular/router';
+// // import { userInfo } from 'os';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,10 +13,6 @@ export class ShoppingCartComponent implements OnInit {
   subTotal: any;
   totalTax: any;
  grandTotal: any;
-
-
-
-
   quantityProduct: Array<any> = [];
 
   allTheProducts: Array<any> = [];
@@ -28,6 +24,7 @@ export class ShoppingCartComponent implements OnInit {
     private myAuth: AuthService,
     private myActivated: ActivatedRoute,
     private myRoute: Router) { }
+
 
   ngOnInit() {
     this.myAuth.isLoggedIn()
@@ -78,6 +75,24 @@ updateTotal(){
     console.log("Hello you", this.subTotal);
   }
 
+
+
+//   ngOnInit() {
+//     this.myAuth.isLoggedIn()
+//       .toPromise()
+//       .then(res => {
+//         this.user = JSON.parse(this.myAuth.currentUser._body);
+//       })
+//       .catch(err => {
+//         console.log('Error with user in shopping cart: ', err);
+//         // this.myRoute.navigate(['/login']);
+//       });
+
+//     this.myActivated.params.subscribe((params) => {
+//       this.showTheCartThings(params['id']);
+//     });
+//   }
+
   showTheCartThings(userId) {
 
     
@@ -87,7 +102,9 @@ updateTotal(){
         this.allTheProducts = res;
         console.log(this.allTheProducts);
 
+
         this.calculateTotal();
+
 
         this.allTheProducts.forEach((product) => {
           const found = this.quantityProduct.find((oneProduct) => {
@@ -107,7 +124,9 @@ updateTotal(){
       });
 
 
+
   }
+
 
 
   increaseQuantity(name) {
@@ -129,6 +148,7 @@ updateTotal(){
         return oneProduct.name === name;
       });
         found.realQuantity -- ;
+
         this.updateTotal();
 
     }
@@ -143,3 +163,8 @@ updateTotal(){
   }
 
 }
+
+    }
+  removeCartItem(removeButton) {
+  }
+

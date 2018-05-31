@@ -40,4 +40,10 @@ export class MerchandiseService {
       .map(res => res.json());
   }
 
+
+  createComment(wholeObject) {
+    return this.http.post(`http://localhost:3000/api/comment/create`, wholeObject, { withCredentials: true })
+      .map(res => res.json());
+  }
+
 }
