@@ -75,4 +75,23 @@ export class AuthService {
   //     .catch(this.handleError);
   // }
 
+  // ========================COMMENTS===============================
+
+  getThreads() {
+    return this.http.get(`http://localhost:3000/api/comments`)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+
+  newThread(thread) {
+    const options = {
+      'Content-Type': 'application/json',
+      'withCredentials': true
+    };
+
+    return this.http.post(`http://localhost:3000/api/comments`, thread, options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 }

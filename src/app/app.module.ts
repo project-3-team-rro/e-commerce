@@ -30,6 +30,7 @@ import { FooterComponent } from './footer/footer.component';
 import { IconModule } from 'angular-icon';
 import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { NewCommentComponent } from './new-comment/new-comment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -54,6 +55,7 @@ const routes: Routes = [
     NavBarComponent,
     FooterComponent,
     CommentsComponent,
+    NewCommentComponent,
   ],
   imports: [
     HttpModule,

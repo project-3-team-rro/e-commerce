@@ -1,29 +1,30 @@
-// import { Component, OnInit } from '@angular/core';
-// import { CartService } from '../services/cart.service';
-// import { AuthService } from '../services/auth.service';
-// import { ActivatedRoute, Router } from '@angular/router';
-// // import { userInfo } from 'os';
+// // import { Component, OnInit } from '@angular/core';
+// // import { CartService } from '../services/cart.service';
+// // import { AuthService } from '../services/auth.service';
+// // import { ActivatedRoute, Router } from '@angular/router';
+// // // import { userInfo } from 'os';
 
-@Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
-})
-export class ShoppingCartComponent implements OnInit {
-  subTotal: any;
-  totalTax: any;
- grandTotal: any;
-  quantityProduct: Array<any> = [];
+// @Component({
+//   selector: 'app-shopping-cart',
+//   templateUrl: './shopping-cart.component.html',
+//   styleUrls: ['./shopping-cart.component.css']
+// })
+// export class ShoppingCartComponent implements OnInit {
+//   subTotal: any;
+//   totalTax: any;
+//  grandTotal: any;
+//   quantityProduct: Array<any> = [];
 
-  allTheProducts: Array<any> = [];
-  user: any;
-  taxRate: any = 0.07;
-  shippingRate: any = 15.00;
- fadeTime: any = 300;
-  constructor(private myCartService: CartService,
-    private myAuth: AuthService,
-    private myActivated: ActivatedRoute,
-    private myRoute: Router) { }
+//   allTheProducts: Array<any> = [];
+//   user: any;
+//   taxRate: any = 0.07;
+//   shippingRate: any = 15.00;
+//  fadeTime: any = 300;
+//   constructor(private myCartService: CartService,
+//     private myAuth: AuthService,
+//     private myActivated: ActivatedRoute,
+//     private myRoute: Router) { }
+
 
 
   ngOnInit() {
@@ -106,30 +107,24 @@ updateTotal(){
         this.calculateTotal();
 
 
-        this.allTheProducts.forEach((product) => {
-          const found = this.quantityProduct.find((oneProduct) => {
-            return oneProduct.name === product.name;
-          });
-          if (found) {
-            found.realQuantity += 1;
-          } else {
-            product.realQuantity = 1;
-            this.quantityProduct.push(product);
-          }
-          console.log("heyyyyyy: ", this.quantityProduct)
-        });
-      })
-      .catch(err => {
-        console.log('error while getting the cart content: ', err);
-      });
+//         this.allTheProducts.forEach((product) => {
+//           const found = this.quantityProduct.find((oneProduct) => {
+//             return oneProduct.name === product.name;
+//           });
+//           if (found) {
+//             found.realQuantity += 1;
+//           } else {
+//             product.realQuantity = 1;
+//             this.quantityProduct.push(product);
+//           }
+//           console.log("heyyyyyy: ", this.quantityProduct)
+//         });
+//       })
+//       .catch(err => {
+//         console.log('error while getting the cart content: ', err);
+//       });
 
-
-
-  }
-
-
-
-  increaseQuantity(name) {
+increaseQuantity(name) {
     const found = this.quantityProduct.find((oneProduct) => {
       return oneProduct.name === name;
     });
@@ -141,9 +136,9 @@ updateTotal(){
   //   value++;
   //   document.getElementById('number').value = value;
 
-  // }
+//   // }
 
-    decreaseQuantity(name) {
+decreaseQuantity(name) {
       const found = this.quantityProduct.find((oneProduct) => {
         return oneProduct.name === name;
       });
@@ -167,4 +162,3 @@ updateTotal(){
     }
   removeCartItem(removeButton) {
   }
-

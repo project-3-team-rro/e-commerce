@@ -1,8 +1,12 @@
-.text-area {
+span {
   background: #4f5b66;
   color: #a7adba;
 }
 
-comments {
-  border: 1px solid #4f5b66,
+.comments {
+  width: 50%,
+}
+
+hr {
+  background: #a7adba;
 }
