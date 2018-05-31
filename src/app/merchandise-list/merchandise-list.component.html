@@ -1,5 +1,35 @@
 <app-search></app-search>
 
+
+
+<!-- Card -->
+<div *ngFor="let item of allTheMerchandise" class="card">
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <img class="img-fluid" [src]='item.picture' alt="Card image cap">
+    <a href="#!">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">{{item.name}}</h4>
+    <!-- Text -->
+    <p class="card-text">Price: ${{item.price}}.</p>
+    <p class="card-text">Condition: {{item.new}}</p>
+    <!-- Button -->
+    <a href="#" class="btn btn-primary">View Details</a>
+
+  </div>
+
+</div>
+<!-- Card -->
+            
+
 <div class="merchandise-list-container-primary">
   <div class="merchandise-list-container">
     <div *ngFor="let item of allTheMerchandise" class="card card-background" style="width: 18rem;">
