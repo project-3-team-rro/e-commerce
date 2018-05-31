@@ -53,7 +53,7 @@ export class NavBarComponent implements OnInit {
       .subscribe((res) => {
         this.theMerchandise = res;
       });
-  } 
+  }
   ngOnInit() {
 
     // this.cartService.cartQuantity

@@ -6,6 +6,10 @@ import 'rxjs/add/operator/catch';
 // tslint:disable-next-line:import-blacklist
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject} from 'rxjs';
+
+import { environment } from '../../environments/environment';
+
+
 @Injectable()
 export class AuthService {
 
@@ -19,13 +23,13 @@ export class AuthService {
   }
 
   signup(user) {
-    return this.http.post(`http://localhost:3000/api/signup`, user, { withCredentials: true })
+    return this.http.post(`${environment.backendUrl}/api/signup`, user, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   login(user) {
-    return this.http.post(`http://localhost:3000/api/login`, user, { withCredentials: true })
+    return this.http.post(`${environment.backendUrl}/api/login`, user, { withCredentials: true })
       .map(res => {
         this.temporaryUser = res;
         this.currentUser = JSON.parse(this.temporaryUser._body);
@@ -35,7 +39,7 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.delete(`http://localhost:3000/api/logout`, { withCredentials: true })
+    return this.http.delete(`${environment.backendUrl}/api/logout`, { withCredentials: true })
       .map(res => {
         console.log('here');
         this.temporaryUser = null;
@@ -47,7 +51,7 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    return this.http.get(`http://localhost:3000/api/loggedin`, { withCredentials: true })
+    return this.http.get(`${environment.backendUrl}/api/loggedin`, { withCredentials: true })
       .map(res => {
         this.temporaryUser = res;
         this.currentUser = JSON.parse(this.temporaryUser._body);
@@ -60,13 +64,13 @@ export class AuthService {
   }
 
   update(user, id) {
-    return this.http.post(`http://localhost:3000/api/updateprofile/${id}`, user, { withCredentials: true })
+    return this.http.post(`${environment.backendUrl}/api/updateprofile/${id}`, user, { withCredentials: true })
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   // getUser() {
-  //   return this.http.get(`http://localhost:3000/api/userInfo`, { withCredentials: true })
+  //   return this.http.get(`${environment.backendUrl}/api/userInfo`, { withCredentials: true })
   //     .map(res => res.json())
   //     .catch(this.handleError);
   // }
