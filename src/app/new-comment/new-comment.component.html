@@ -1,0 +1,17 @@
+<!-- <p>
+  new-comment works!
+</p> -->
+
+<button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
+
+<div *ngIf="message">{{ message }}</div>
+<form *ngIf="showForm" (ngSubmit)="createThread()">
+  <textarea type="text" [(ngModel)]="comment.content" name="content" id="content" cols="50" rows="4" maxlength="200"></textarea>
+  <button type="submit">Submit Thread</button>
+</form>
+
+<!-- <div *ngIf="message">{{ message }}</div>
+<form *ngIf="showForm" (ngSubmit)="createThread()">
+  <textarea type="text" [(ngModel)]="comment.content" name="content" id="content" cols="50" rows="4" maxlength="200"></textarea>
+  <button type="submit">Submit Thread</button>
+</form> -->
