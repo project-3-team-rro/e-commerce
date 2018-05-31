@@ -1,93 +1,43 @@
-<div *ngIf="user">
-  Welcome, {{ user.username }}!
-  <a [routerLink]="['/user/', user._id, 'cart']">Shopping cart</a>
+<!-- Page Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<h1 class="my-4">Sell It All</h1>
+			<div class="list-group">
+				<a href="#" class="list-group-item active">Category 1</a>
+				<a href="#" class="list-group-item">Category 2</a>
+				<a href="#" class="list-group-item">Category 3</a>
+			</div>
+		</div>
+		<!-- /.col-lg-3 -->
+		<div class="col-lg-9">
+			<div class="card mt-4">
+				<img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
+				<div class="card-body">
+					<h3 class="card-title">{{theMerchandise.name}}</h3>
+					<h4>$24.99</h4>
+					<p class="card-text">{{theMerchandise.description}}</p>
+					<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+					4.0 stars
+				</div>
+			</div>
+			<!-- /.card -->
+
+			<div class="card card-outline-secondary my-4">
+				<div class="card-header">
+					Product Reviews
+				</div>
+				<div class="card-body">
+					<!-- We need a loop that displays every review for this item like the example below -->
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+					<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+					<hr>
+					<a href="#" class="btn btn-success">Leave a Review</a>
+				</div>
+			</div>
+			<!-- /.card -->
+		</div>
+		<!-- /.col-lg-9 -->
+	</div>
 </div>
-
-<div class="merchandise-details-container">
-  <div class="actual-item">
-    <h1>{{theMerchandise.name}}</h1>
-    <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
-    <!-- <img [src]="theMerchandise.picture" alt="theMerchandise.name"> -->
-    <h4>{{theMerchandise.description}}</h4>
-    <hr class="line">
-
-
-    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
-    <button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
-
-    <form *ngIf="isFormShowing">
-      <textarea class="text-area" name="comment" [(ngModel)]="newComment.content" rows="4" cols="50" maxlength="200">
-      </textarea>
-      <button type="button" class="btn btn-outline-dark" (click)="addNew(theMerchandise._id) ">Add Comment</button>
-    </form>
-
-    <div *ngIf="!isFormShowing">
-      <div class="comments" *ngFor="let oneComment of comments">
-        <p>{{oneComment.content}}</p>
-        <hr>
-      </div>
-    </div>
-
-
-
-    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
-
-  </div>
-
-  <div class="merchandise-information">
-    <h2>{{getCurrency()}}{{theMerchandise.price}}</h2>
-    <h4> category//{{theMerchandise.category}}</h4>
-    <h4> new or used?//{{theMerchandise.new}}</h4>
-
-    <h4> seller// {{theMerchandise.seller}}</h4>
-    <h4> Quantity//{{theMerchandise.quantity}}</h4>
-    <!-- <div *ngIf='cartButtonShown(theMerchandise)'> -->
-    <button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
-      Add to cart
-    </button>
-    <!-- </div> -->
-
-  </div>
-
-
-  <div *ngIf='userEqualSeller()'>
-
-    <!-- LINE 26 IS TEMPORARY FIX ASK SOMBODY FOR HELP -->
-    <a href="/merchandise">
-      <button class="btn btn-outline-dark" (click)="deleteItem(theMerchandise._id)">Delete Item</button>
-    </a>
-    <button class="btn btn-outline-dark" (click)="toggleForm()">
-      Edit Item
-    </button>
-    <div *ngIf="isFormShowing" class="edit">
-      <label>Name</label>
-      <input [(ngModel)]="theUpdate.name" type="text" name="name">
-
-      <label>Price</label>
-      <input [(ngModel)]="theUpdate.price" type="text" name="price">
-
-      <label>Description</label>
-      <input [(ngModel)]="theUpdate.description" type="text" name="description">
-
-      <label>Category</label>
-      <select [(ngModel)]='theUpdate.category'>
-        <option value="Electronics ">Electronics</option>
-        <option value="Home Furnishing ">Home Furnishing</option>
-        <option value="Appliances ">Appliances</option>
-        <option value="Handmade ">Handmade</option>
-      </select>
-
-      <label> New or Used? </label>
-      <select [(ngModel)]="theUpdate.new ">
-        <option value="New ">New</option>
-        <option value="Used ">Used</option>
-      </select>
-
-      <label>Quantity</label>
-      <input [(ngModel)]="theUpdate.quantity " type="text " name="quantity ">
-
-      <button (click)="updateTheItem(theMerchandise._id) " type="button ">Submit Changes</button>
-
-    </div>
-  </div>
-</div>
+<!-- /.container -->

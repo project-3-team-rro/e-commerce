@@ -2,3 +2,6 @@ body {
   background: #65737e;
   width: 90%;
 }
+.extra-top-margin{
+	margin-top: 100px;
+}

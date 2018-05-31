@@ -1,0 +1,93 @@
+<div *ngIf="user">
+  Welcome, {{ user.username }}!
+  <a [routerLink]="['/user/', user._id, 'cart']">Shopping cart</a>
+</div>
+
+<div class="merchandise-details-container">
+  <div class="actual-item">
+    <h1>{{theMerchandise.name}}</h1>
+    <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
+    <!-- <img [src]="theMerchandise.picture" alt="theMerchandise.name"> -->
+    <h4>{{theMerchandise.description}}</h4>
+    <hr class="line">
+
+
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+    <button class="btn btn-outline-dark" type="button" (click)="toggleForm()">Create New Comment</button>
+
+    <form *ngIf="isFormShowing">
+      <textarea class="text-area" name="comment" [(ngModel)]="newComment.content" rows="4" cols="50" maxlength="200">
+      </textarea>
+      <button type="button" class="btn btn-outline-dark" (click)="addNew(theMerchandise._id) ">Add Comment</button>
+    </form>
+
+    <div *ngIf="!isFormShowing">
+      <div class="comments" *ngFor="let oneComment of comments">
+        <p>{{oneComment.content}}</p>
+        <hr>
+      </div>
+    </div>
+
+
+
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+  </div>
+
+  <div class="merchandise-information">
+    <h2>{{getCurrency()}}{{theMerchandise.price}}</h2>
+    <h4> category//{{theMerchandise.category}}</h4>
+    <h4> new or used?//{{theMerchandise.new}}</h4>
+
+    <h4> seller// {{theMerchandise.seller}}</h4>
+    <h4> Quantity//{{theMerchandise.quantity}}</h4>
+    <!-- <div *ngIf='cartButtonShown(theMerchandise)'> -->
+    <button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
+      Add to cart
+    </button>
+    <!-- </div> -->
+
+  </div>
+
+
+  <div *ngIf='userEqualSeller()'>
+
+    <!-- LINE 26 IS TEMPORARY FIX ASK SOMBODY FOR HELP -->
+    <a href="/merchandise">
+      <button class="btn btn-outline-dark" (click)="deleteItem(theMerchandise._id)">Delete Item</button>
+    </a>
+    <button class="btn btn-outline-dark" (click)="toggleForm()">
+      Edit Item
+    </button>
+    <div *ngIf="isFormShowing" class="edit">
+      <label>Name</label>
+      <input [(ngModel)]="theUpdate.name" type="text" name="name">
+
+      <label>Price</label>
+      <input [(ngModel)]="theUpdate.price" type="text" name="price">
+
+      <label>Description</label>
+      <input [(ngModel)]="theUpdate.description" type="text" name="description">
+
+      <label>Category</label>
+      <select [(ngModel)]='theUpdate.category'>
+        <option value="Electronics ">Electronics</option>
+        <option value="Home Furnishing ">Home Furnishing</option>
+        <option value="Appliances ">Appliances</option>
+        <option value="Handmade ">Handmade</option>
+      </select>
+
+      <label> New or Used? </label>
+      <select [(ngModel)]="theUpdate.new ">
+        <option value="New ">New</option>
+        <option value="Used ">Used</option>
+      </select>
+
+      <label>Quantity</label>
+      <input [(ngModel)]="theUpdate.quantity " type="text " name="quantity ">
+
+      <button (click)="updateTheItem(theMerchandise._id) " type="button ">Submit Changes</button>
+
+    </div>
+  </div>
+</div>
