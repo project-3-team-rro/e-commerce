@@ -24,6 +24,7 @@ import { IconModule } from 'angular-icon';
 import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'landing-page', pathMatch: 'full' },
@@ -50,6 +51,7 @@ const routes: Routes = [
 		FooterComponent,
 		CommentsComponent,
 		LandingPageComponent,
+		CheckoutComponent,
 	],
 	imports: [
 		HttpModule,
