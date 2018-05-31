@@ -12,7 +12,7 @@ import { MerchandiseService } from './services/merchandise.service';
 import { SearchComponent } from './search/search.component';
 import { MerchandiseListComponent } from './merchandise-list/merchandise-list.component';
 import { MerchandiseDetailsComponent } from './merchandise-details/merchandise-details.component';
-// import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -24,6 +24,7 @@ import { IconModule } from 'angular-icon';
 import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'landing-page', pathMatch: 'full' },
@@ -31,9 +32,10 @@ const routes: Routes = [
 	{ path: 'signup', component: SignupComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'merchandise/:id', component: MerchandiseDetailsComponent },
-	// { path: 'user/:id/cart', component: ShoppingCartComponent },
+	{ path: 'user/:id/cart', component: ShoppingCartComponent },
 	{ path: 'profile', component: UserProfileComponent },
-	{ path: 'landing-page', component: LandingPageComponent }
+	{ path: 'landing-page', component: LandingPageComponent },
+	{ path: 'checkout', component: CheckoutComponent }
 ];
 
 @NgModule({
@@ -42,7 +44,7 @@ const routes: Routes = [
 		SearchComponent,
 		MerchandiseListComponent,
 		MerchandiseDetailsComponent,
-		// ShoppingCartComponent,
+		ShoppingCartComponent,
 		SignupComponent,
 		LoginComponent,
 		UserProfileComponent,
@@ -50,6 +52,7 @@ const routes: Routes = [
 		FooterComponent,
 		CommentsComponent,
 		LandingPageComponent,
+		CheckoutComponent,
 	],
 	imports: [
 		HttpModule,
