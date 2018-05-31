@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MaterialModule} from './material.module';
-import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -49,7 +52,6 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     UserProfileComponent,
-
     NavBarComponent,
     FooterComponent,
     CommentsComponent
@@ -65,8 +67,10 @@ const routes: Routes = [
     HttpClientModule,
     IconModule,
     MatIconModule,
-    MaterialModule
+    MaterialModule,
+    MDBBootstrapModule.forRoot()
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
 
   exports: [
     MaterialModule

@@ -35,7 +35,7 @@
         </li>
         <li>
           <p>welcome, {{user.username}}</p>
-          <a [routerLink]="['/user', user._id, 'cart']"><mat-icon>shopping_cart</mat-icon> </a> {{cartQuantity}} 
+          <a [routerLink]="['/user', user._id, 'cart']"><mat-icon>shopping_cart</mat-icon> </a><span class="badge badge-light">{{cartQuantity}}</span> 
         </li>
       </ul>
      
