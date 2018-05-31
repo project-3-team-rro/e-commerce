@@ -21,12 +21,13 @@ export class MerchandiseDetailsComponent implements OnInit {
   user: any;
   isFormShowing: Boolean = false;
   isSeller: Boolean = false;
+  allTheMerchandise: Array<any> = [];
 
-  comments: Array<any> = [];
-  newComment: any = {
-    content: '',
-    id: '',
-  };
+  // comments: Array<any> = [];
+  // newComment: any = {
+  //   content: '',
+  //   id: '',
+  // };
 
 
   constructor(private authService: AuthService,
@@ -44,9 +45,17 @@ export class MerchandiseDetailsComponent implements OnInit {
   deleteItem(id) {
     this.merchandiseService.deleteItem(id)
       .subscribe(() => {
-        // this.merchandiseListComponent.allMerchandise();
+        // this.allMerchandise();
+        this.myRouter.navigate(['/merchandise']);
+        this.allMerchandise();
       });
-    // this.myRouter.navigate(['/merchandise']);
+  }
+
+  allMerchandise(): any {
+    // console.log('all merchandise');
+    this.merchandiseService.getAllMerchandise().subscribe(merchandise => {
+      this.allTheMerchandise = merchandise;
+    });
   }
 
 
@@ -118,15 +127,15 @@ export class MerchandiseDetailsComponent implements OnInit {
       });
 
     // console.log('-----------------------------------MERCHANDISE!!!!!!!!!!!!!!!!!!!!!!', this.theMerchandise);
+    this.allMerchandise();
 
   }
 
   addToCart(product, user) {
     // console.log('what is product: ', product, "and the user is: ", user);
     this.cartService.addToCart(product, user)
-      .then(res =>  {
+      .then(res => {
         this.myRouter.navigate(['/user', user._id, 'cart']);
-        res.json();
       })
       .catch(err => console.log('error in add to cart: ', err));
   }
@@ -144,13 +153,14 @@ export class MerchandiseDetailsComponent implements OnInit {
   //   // this.comments.push(newOne)
   //   // this.newComment.content = '';
   // }
-  addNew(): void {
-    const newOne = { content: this.newComment.content };
-    this.comments.push(newOne);
-    this.newComment.content = '';
-    this.toggleForm();
-    console.log('--------------------COMMENTS-----------------', this.comments);
-  }
+
+  // addNew(): void {
+  //   const newOne = { content: this.newComment.content };
+  //   this.comments.push(newOne);
+  //   this.newComment.content = '';
+  //   this.toggleForm();
+  //   console.log('--------------------COMMENTS-----------------', this.comments);
+  // }
 
 
 
