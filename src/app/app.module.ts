@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {MaterialModule} from './material.module';
+
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -23,7 +27,11 @@ import { FooterComponent } from './footer/footer.component';
 import { IconModule } from 'angular-icon';
 import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+
 import { LandingPageComponent } from './landing-page/landing-page.component';
+
+import { NewCommentComponent } from './new-comment/new-comment.component';
+
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'landing-page', pathMatch: 'full' },
@@ -37,33 +45,43 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		SearchComponent,
-		MerchandiseListComponent,
-		MerchandiseDetailsComponent,
-		// ShoppingCartComponent,
-		SignupComponent,
-		LoginComponent,
-		UserProfileComponent,
-		NavBarComponent,
-		FooterComponent,
-		CommentsComponent,
-		LandingPageComponent,
-	],
-	imports: [
-		HttpModule,
-		HttpClientModule,
-		BrowserModule,
-		FormsModule,
-		RouterModule.forRoot(routes),
-		BrowserAnimationsModule,
-		AngularFontAwesomeModule,
-		HttpClientModule,
-		IconModule,
-		MatIconModule
-	],
-	providers: [MerchandiseService, AuthService, CartService],
-	bootstrap: [AppComponent]
+
+  declarations: [
+    AppComponent,
+    SearchComponent,
+    MerchandiseListComponent,
+    MerchandiseDetailsComponent,
+    // ShoppingCartComponent,
+    SignupComponent,
+    LoginComponent,
+    UserProfileComponent,
+    NavBarComponent,
+    FooterComponent,
+    CommentsComponent,
+    LandingPageComponent,
+    NewCommentComponent,
+  ],
+  imports: [
+    HttpModule,
+    HttpClientModule,
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    AngularFontAwesomeModule,
+    HttpClientModule,
+    IconModule,
+    MatIconModule,
+    MaterialModule,
+    MDBBootstrapModule.forRoot()
+  ],
+  schemas: [ NO_ERRORS_SCHEMA ],
+
+  exports: [
+    MaterialModule
+  ],
+  providers: [MerchandiseService, AuthService, CartService],
+  bootstrap: [AppComponent]
+
 })
 export class AppModule { }
