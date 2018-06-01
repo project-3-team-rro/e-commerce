@@ -38,15 +38,10 @@
 
 
 		<ul class="nav navbar-nav navbar-right">
-				<li><a [routerLink]="['/signup']">Sign Up</a></li>
-				<li><a [routerLink]="['/login']">Login</a></li>
-				<li *ngIf="user">
-						<button (click)="logout()"> logout </button>
-				</li>
-				<li>
-					<!-- {{ user.username }}
-					<a [routerLink]="['/user', user._id, 'cart']">shopping_cart</a> -->
-				</li>
+				<a class="btn btn-success btn-sm ml-3" href="#">
+                        <i class="fa fa-shopping-cart"></i> Cart
+                        <span class="badge badge-light">0</span>
+                    </a>
 			</ul>
 	</div>
 </nav>
