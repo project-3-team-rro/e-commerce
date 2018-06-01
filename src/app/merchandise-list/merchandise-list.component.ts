@@ -24,6 +24,7 @@ export class MerchandiseListComponent implements OnInit {
     private merchandiseService: MerchandiseService, private authService: AuthService,
     private router: Router,
     private appComponent: AppComponent,
+    private route: ActivatedRoute,
     // private merchandiseDetailsComponent: MerchandiseDetailsComponent
   ) { }
 
@@ -63,6 +64,35 @@ export class MerchandiseListComponent implements OnInit {
     // this.user = this.appComponent.user;
     console.log(this.allMerchandise);
     console.log('-----------');
+     // from here
+     this.authService.isLoggedIn()
+     .toPromise()
+     .then(() => {
+       // don't forget to declare user up!
+       this.user = JSON.parse(this.authService.currentUser._body);
+     })
+     .catch(err => {
+       console.log('error in ngOnInit in merchendise details: ', err);
+       // this.myRouter.navigate(['/login']);
+     });
+   // to here every component that needs to have user needs to have this exactly the same
+  //  this.route.params
+  //    .subscribe(theParams => {
+  //      const theID = theParams['id'];
+  //      this.getTheItem(theID);
+  //    });
+   this.authService.isLoggedIn()
+     .toPromise()
+     .then(() => {
+       this.user = this.authService.currentUser;
+       // console.log(this.user); ===== Works !
+     })
+     .catch(err => {
+       console.log(err);
+       // this.myRouter.navigate(['/login']);
+     });
+
+   // console.log('-----------------------------------MERCHANDISE!!!!!!!!!!!!!!!!!!!!!!', this.theMerchandise);
   }
 
 
