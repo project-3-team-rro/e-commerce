@@ -29,6 +29,7 @@ export class NavBarComponent implements OnInit {
 
   title = 'app';
 
+
   cartQuantity: any;
 
   form: Boolean = true;
@@ -39,9 +40,6 @@ export class NavBarComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'cart',
     sanitizer.bypassSecurityTrustUrl('assets/cart.svg'));
-
-
-
   }
 
   // unnecessary
@@ -83,8 +81,8 @@ export class NavBarComponent implements OnInit {
         const theID = theParams['id'];
         this.getTheItem(theID);
       });
-
   }
+
 
   logout() {
     this.authService.logout()

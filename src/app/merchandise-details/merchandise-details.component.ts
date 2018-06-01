@@ -67,7 +67,6 @@ export class MerchandiseDetailsComponent implements OnInit {
   //   }
   // }
 
-
   getTheItem(id) {
     this.merchandiseService.getMerchandiseDetails(id)
       .subscribe((res) => {
@@ -118,32 +117,20 @@ export class MerchandiseDetailsComponent implements OnInit {
       });
 
     // console.log('-----------------------------------MERCHANDISE!!!!!!!!!!!!!!!!!!!!!!', this.theMerchandise);
-
   }
 
   addToCart(product, user) {
     // console.log('what is product: ', product, "and the user is: ", user);
     this.cartService.addToCart(product, user)
-      .then(res =>  {
+      .then(res => {
         this.myRouter.navigate(['/user', user._id, 'cart']);
         res.json();
       })
       .catch(err => console.log('error in add to cart: ', err));
   }
 
-
-
   ////////////////////////////////////////////////////////
 
-  // addNew(id): void {
-  //   this.merchandiseService.createComment(this.newComment).subscribe(foo => {
-  //     this.newComment = {};
-  //     console.log('yooooo', this.newComment);
-  //     this.toggleForm();
-  //   });
-  //   // this.comments.push(newOne)
-  //   // this.newComment.content = '';
-  // }
   addNew(): void {
     const newOne = { content: this.newComment.content };
     this.comments.push(newOne);
@@ -152,6 +139,5 @@ export class MerchandiseDetailsComponent implements OnInit {
     console.log('--------------------COMMENTS-----------------', this.comments);
   }
 
-
-
 }
+
