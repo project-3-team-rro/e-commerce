@@ -27,6 +27,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CreateItemComponent } from './create-item/create-item.component';
 import { NewCommentComponent } from './new-comment/new-comment.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'landing-page', pathMatch: 'full' },
@@ -37,7 +38,8 @@ const routes: Routes = [
 	{ path: 'user/:id/cart', component: ShoppingCartComponent },
 	{ path: 'profile', component: UserProfileComponent },
 	{ path: 'landing-page', component: LandingPageComponent },
-	{ path: 'checkout', component: CheckoutComponent }
+	{ path: 'checkout', component: CheckoutComponent },
+	{ path: 'thankyou', component: ThankyouComponent }
 ];
 
 @NgModule({
@@ -56,7 +58,8 @@ const routes: Routes = [
 		LandingPageComponent,
 		CreateItemComponent,
 		NewCommentComponent,
-		CheckoutComponent
+		CheckoutComponent,
+		ThankyouComponent
 	],
 	imports: [
 		HttpModule,
