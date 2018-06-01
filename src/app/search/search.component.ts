@@ -20,11 +20,10 @@ export class SearchComponent implements OnInit {
 	constructor(private merchandiseList: MerchandiseListComponent, private merchandiseService: MerchandiseService) { }
 
 	filterMerchandise(search) {
-		// console.log(this.search.toLocaleLowerCase());
+		console.log(this.search.toLocaleLowerCase());
 		this.resultsArray = this.merchandiseList.allTheMerchandise.filter(product => {
 			return product.name.toLowerCase().includes(this.search.toLowerCase());
 		});
-		this.merchandiseList.newItem;
 
 	}
 

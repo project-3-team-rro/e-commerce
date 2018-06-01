@@ -22,23 +22,20 @@
           <h3 class="card-title">{{theMerchandise.name}}</h3>
           <h4>$24.99</h4>
           <p class="card-text">{{theMerchandise.description}}</p>
-          <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-          4.0 stars
         </div>
       </div>
       <!-- /.card -->
+      <button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
+        Add to cart
+      </button>
       <div *ngIf='userEqualSeller()'>
 
-        <!-- LINE 26 IS TEMPORARY FIX ASK SOMBODY FOR HELP -->
         <a href="/merchandise">
           <button class="btn btn-outline-dark" (click)="deleteItem(theMerchandise._id)">Delete Item</button>
         </a>
         <button class="btn btn-outline-dark" (click)="toggleForm()">
           Edit Item
         </button>
-        <button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
-						Add to cart
-				</button>
         <div *ngIf="isFormShowing" class="edit">
           <label>Name</label>
           <input [(ngModel)]="theUpdate.name" type="text" name="name">
