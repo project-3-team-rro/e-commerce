@@ -5,81 +5,73 @@
 
 <!-- Page Content -->
 <div class="container">
-  <div class="row">
-    <div class="col-lg-3">
-      <h1 class="my-4">Sell It All</h1>
-      <div class="list-group">
-        <a href="#" class="list-group-item active">Category 1</a>
-        <a href="#" class="list-group-item">Category 2</a>
-        <a href="#" class="list-group-item">Category 3</a>
+
+  <!-- /.col-lg-3 -->
+  <div class="col-lg-9 mx-auto">
+    <div class="card mt-4">
+      <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
+      <div class="card-body">
+        <h3 class="card-title">{{theMerchandise.name}}</h3>
+        <h4>$24.99</h4>
+        <p class="card-text">{{theMerchandise.description}}</p>
       </div>
     </div>
-    <!-- /.col-lg-3 -->
-    <div class="col-lg-9">
-      <div class="card mt-4">
-        <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
-        <div class="card-body">
-          <h3 class="card-title">{{theMerchandise.name}}</h3>
-          <h4>$24.99</h4>
-          <p class="card-text">{{theMerchandise.description}}</p>
-        </div>
-      </div>
-      <!-- /.card -->
-      <button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
-        Add to cart
+    <!-- /.card -->
+    <button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
+      Add to cart
+    </button>
+    <div *ngIf='userEqualSeller()'>
+
+      <a href="/merchandise">
+        <button class="btn btn-info" (click)="deleteItem(theMerchandise._id)">Delete Item</button>
+      </a>
+      <button class="btn btn-info" (click)="toggleForm()">
+        Edit Item
       </button>
-      <div *ngIf='userEqualSeller()'>
+      <div *ngIf="isFormShowing" class="edit">
+        <label>Name</label>
+        <input [(ngModel)]="theUpdate.name" type="text" name="name">
 
-        <a href="/merchandise">
-          <button class="btn btn-outline-dark" (click)="deleteItem(theMerchandise._id)">Delete Item</button>
-        </a>
-        <button class="btn btn-outline-dark" (click)="toggleForm()">
-          Edit Item
-        </button>
-        <div *ngIf="isFormShowing" class="edit">
-          <label>Name</label>
-          <input [(ngModel)]="theUpdate.name" type="text" name="name">
+        <label>Price</label>
+        <input [(ngModel)]="theUpdate.price" type="text" name="price">
 
-          <label>Price</label>
-          <input [(ngModel)]="theUpdate.price" type="text" name="price">
+        <label>Description</label>
+        <input [(ngModel)]="theUpdate.description" type="text" name="description">
 
-          <label>Description</label>
-          <input [(ngModel)]="theUpdate.description" type="text" name="description">
+        <label>Category</label>
+        <select [(ngModel)]='theUpdate.category'>
+          <option value="Electronics ">Electronics</option>
+          <option value="Home Furnishing ">Home Furnishing</option>
+          <option value="Appliances ">Appliances</option>
+          <option value="Handmade ">Handmade</option>
+        </select>
 
-          <label>Category</label>
-          <select [(ngModel)]='theUpdate.category'>
-            <option value="Electronics ">Electronics</option>
-            <option value="Home Furnishing ">Home Furnishing</option>
-            <option value="Appliances ">Appliances</option>
-            <option value="Handmade ">Handmade</option>
-          </select>
+        <label> New or Used? </label>
+        <select [(ngModel)]="theUpdate.new ">
+          <option value="New ">New</option>
+          <option value="Used ">Used</option>
+        </select>
 
-          <label> New or Used? </label>
-          <select [(ngModel)]="theUpdate.new ">
-            <option value="New ">New</option>
-            <option value="Used ">Used</option>
-          </select>
+        <label>Quantity</label>
+        <input [(ngModel)]="theUpdate.quantity " type="text " name="quantity ">
 
-          <label>Quantity</label>
-          <input [(ngModel)]="theUpdate.quantity " type="text " name="quantity ">
+        <button (click)="updateTheItem(theMerchandise._id) " type="button ">Submit Changes</button>
 
-          <button (click)="updateTheItem(theMerchandise._id) " type="button ">Submit Changes</button>
-
-        </div>
       </div>
-
-
-      <div class="card card-outline-secondary my-4">
-        <div class="card-header">
-          Product Reviews
-        </div>
-        <div class="card-body">
-          <app-new-comment></app-new-comment>
-          <hr>
-          <app-comments></app-comments>
-        </div>
-      </div>
-      <!-- /.card -->
     </div>
-    <!-- /.col-lg-9 -->
+
+
+    <div class="card card-outline-secondary my-4">
+      <div class="card-header">
+        Product Reviews
+      </div>
+      <div class="card-body">
+        <app-new-comment></app-new-comment>
+        <hr>
+        <app-comments></app-comments>
+      </div>
+    </div>
+    <!-- /.card -->
   </div>
+  <!-- /.col-lg-9 -->
+</div>
