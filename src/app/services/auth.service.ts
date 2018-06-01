@@ -46,7 +46,7 @@ export class AuthService {
         this.currentUser = JSON.parse(this.temporaryUser._body);
         // this.currentUser = res.json();
         // console.log('res in the service: ', this.currentUser);
-        res.json();
+        return this.currentUser;
       })
       .catch(this.handleError);
   }
