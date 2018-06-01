@@ -1,0 +1,40 @@
+<div>
+	<!-- <div *ngIf="!user"> -->
+	<div class="card mx-auto text-center border-secondary" style="width: 55%">
+		<div class="card-body">
+			<h2> Log In</h2><br>
+
+			<form class="form-inline d-flex justify-content-around flex-column">
+
+				<!-- <label for="inlineFormInputGroup">Username</label> -->
+				<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+					<input type="text" [(ngModel)]="formInfo.username" name="username" class="form-control form-control-lg" id="inlineFormInputGroup" placeholder="Username">
+				</div>
+				<br>
+
+				<!-- <label for="inlineFormInputGroup">Password</label> -->
+				<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+					<input [(ngModel)]="formInfo.password" name="password" class="form-control form-control-lg" type="password" placeholder="Password">
+				</div>
+				<br>
+				
+				<div>
+					<button type="submit" class="btn btn-lg btn-primary" (click)="login()">Login</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<!-- <div *ngIf="user"> -->
+	<!-- <h2> Welcome, {{ formInfo.username }}!! </h2> -->
+	<!-- <button type="button" (click)="logout()"> logout </button> -->
+	<!-- <button (click)="getPrivateData()"> Get private data </button> -->
+	<!-- <app-user-profile></app-user-profile> -->
+	<!-- <button>
+		<a [routerLink]="['/profile']"> Profile </a>
+	</button> -->
+<!-- </div> -->
+<!-- </div> -->

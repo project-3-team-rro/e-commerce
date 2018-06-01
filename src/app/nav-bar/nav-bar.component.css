@@ -1,0 +1,31 @@
+/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
+@import "~font-awesome/css/font-awesome.css";
+
+.navbar-nav > li{
+  padding-left:20px;
+  padding-right:20px;
+}
+
+
+
+.navbar-nav > li{
+  margin-left:10px;
+  margin-right:10px;
+}
+ul.dropdown-cart li .item-left span.item-info{
+  margin-left:10px;   
+}
+ul.dropdown-cart li .item-left span.item-info span{
+  display:block;
+}
+ul.dropdown-cart li .item-right{
+  float:right;
+}
+ul.dropdown-cart li .item-right button{
+  margin-top:14px;
+}
+
+.centered {
+  margin: 0 auto;
+
+}

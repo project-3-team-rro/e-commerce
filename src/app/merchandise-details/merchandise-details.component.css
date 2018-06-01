@@ -1,0 +1,41 @@
+img {
+  width: 50%;
+  height: 65%;
+}
+
+h1 {
+  color: #a7adba;
+}
+
+.actual-item {
+  color: #a7adba;
+  width: 40%;
+  height: 100%;
+}
+
+.merchandise-information {
+  width: 50%;
+  color: #a7adba;
+}
+
+.edit {
+  flex-direction: column;
+  display: flex;
+  margin: 5%;
+}
+
+.merchandise-details-container {
+  background: #4f5b66;
+  display: flex;
+  justify-content: space-around;
+  background-size: cover;
+  height: auto;
+}
+
+.line {
+  background: #a7adba;
+}
+
+.add-to-cart {
+  color: #a7adba;
+}

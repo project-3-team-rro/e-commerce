@@ -1,0 +1,59 @@
+<ng-template #loading>
+    <p style="text-align:center"><br/><br/><br/><br/><img src="assets/spin.svg"/></p>
+</ng-template>
+<table *ngIf="allTheProducts.length > 0">
+    
+    <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let oneProduct of quantityProduct">
+        <td>  <img [src]="oneProduct.picture" height="200" width="100"></td>
+        <td>{{oneProduct.name}}</td>
+        <td>{{oneProduct.description}}</td>
+        <td>{{oneProduct.price}}</td>
+        <td>  <input type="number" id="number" value="{{oneProduct.realQuantity}}" /></td>
+        <td>{{oneProduct.price * oneProduct.realQuantity }}</td>
+        <td>
+            <button mat-icon-button (click)="increaseQuantity(oneProduct.name)">
+                <mat-icon>add_box</mat-icon>
+            </button>
+            <button mat-icon-button (click)="decreaseQuantity(oneProduct.name)">
+                <mat-icon >indeterminate_check_box</mat-icon>
+            </button>
+            <button mat-icon-button (click)="removeCartItem(oneProduct.name)">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+        </td>
+    </tr>
+</table>
+
+
+<div class="totals">
+        <div class="totals-item">
+          <label>Subtotal</label>
+          <div class="totals-value" id="cart-subtotal">{{subTotal}}</div>
+        </div>
+        <div class="totals-item">
+          <label>Tax (7%)</label>
+          <div class="totals-value" id="cart-tax">{{totalTax}}</div>
+        </div>
+        <div class="totals-item">
+          <label>Shipping</label>
+          <div class="totals-value" id="cart-shipping">15.00</div>
+        </div>
+        <div class="totals-item totals-item-total">
+          <label>Grand Total</label>
+          <div class="totals-value" id="cart-total">{{grandTotal}}</div>
+        </div>
+     
+          
+          <button id="checkout" class="btn btn-success" (click)="sendToCheckout()" >Checkout</button>
+          
+    
+    </div>

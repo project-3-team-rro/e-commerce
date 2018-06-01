@@ -1,0 +1,83 @@
+<div *ngIf="user">
+  Welcome, {{ user.username }}!
+  <a [routerLink]="['/user/', user._id, 'cart']">Shopping cart</a>
+</div>
+
+<!-- Page Content -->
+<div class="container">
+  
+    <!-- /.col-lg-3 -->
+    <div class="col-lg-9 mx-auto">
+      <div class="card mt-4">
+        <img *ngIf="theMerchandise.picture" [src]="theMerchandise.picture">
+        <div class="card-body">
+          <h3 class="card-title">{{theMerchandise.name}}</h3>
+          <h4>$24.99</h4>
+          <p class="card-text">{{theMerchandise.description}}</p>
+          <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+          4.0 stars
+        </div>
+      </div>
+      <!-- /.card -->
+      <button class="add-to-cart btn btn-info" (click)="addToCart(theMerchandise, user)">
+        Add to cart
+      </button>
+      <div *ngIf='userEqualSeller()'>
+
+        <!-- LINE 26 IS TEMPORARY FIX ASK SOMBODY FOR HELP -->
+        <a href="/merchandise">
+          <button class="btn btn-info" (click)="deleteItem(theMerchandise._id)">Delete Item</button>
+        </a>
+        <button class="btn btn-info" (click)="toggleForm()">
+          Edit Item
+        </button>
+        <!-- <button class="add-to-cart btn btn-info" (click)="addToCart(theMerchandise, user)">
+						Add to cart
+				</button> -->
+        <div *ngIf="isFormShowing" class="edit">
+          <label>Name</label>
+          <input [(ngModel)]="theUpdate.name" type="text" name="name">
+
+          <label>Price</label>
+          <input [(ngModel)]="theUpdate.price" type="text" name="price">
+
+          <label>Description</label>
+          <input [(ngModel)]="theUpdate.description" type="text" name="description">
+
+          <label>Category</label>
+          <select [(ngModel)]='theUpdate.category'>
+            <option value="Electronics ">Electronics</option>
+            <option value="Home Furnishing ">Home Furnishing</option>
+            <option value="Appliances ">Appliances</option>
+            <option value="Handmade ">Handmade</option>
+          </select>
+
+          <label> New or Used? </label>
+          <select [(ngModel)]="theUpdate.new ">
+            <option value="New ">New</option>
+            <option value="Used ">Used</option>
+          </select>
+
+          <label>Quantity</label>
+          <input [(ngModel)]="theUpdate.quantity " type="text " name="quantity ">
+
+          <button (click)="updateTheItem(theMerchandise._id) " type="button ">Submit Changes</button>
+
+        </div>
+      </div>
+
+
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          Product Reviews
+        </div>
+        <div class="card-body">
+          <app-new-comment></app-new-comment>
+          <hr>
+          <app-comments></app-comments>
+        </div>
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col-lg-9 -->
+  </div>

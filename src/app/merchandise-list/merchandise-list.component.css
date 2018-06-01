@@ -1,0 +1,34 @@
+img {
+  width: 30%;
+  /* height: 25px; */
+}
+
+.merchandise-list-container-primary {
+  display: flex;
+  justify-content: center;
+}
+
+.merchandise-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: baseline; */
+  background: #65737e;
+}
+
+.card-background {
+  margin: 5px;
+}
+
+.imageBox {
+  height: 175px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-form {
+  /* display: flex; */
+  display: grid;
+}

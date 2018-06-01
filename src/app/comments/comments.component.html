@@ -1,0 +1,16 @@
+<h1>COMMENTS</h1>
+<hr>
+<div class="comments" *ngIf="comments">
+  <span *ngFor="let comment of comments">
+    <!-- <a [routerLink]="['/threads', thread._id]">{{ thread.title }}</a> -->
+    <h3>{{comment._author}}</h3>
+    <p>{{comment.content}}</p>
+    <br>{{comment.date}}
+    <hr>
+  </span>
+</div>
+
+
+<div *ngIf="message">
+  {{ message }}
+</div>
