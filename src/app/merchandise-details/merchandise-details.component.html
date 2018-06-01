@@ -1,3 +1,8 @@
+<div *ngIf="user">
+  Welcome, {{ user.username }}!
+  <a [routerLink]="['/user/', user._id, 'cart']">Shopping cart</a>
+</div>
+
 <!-- Page Content -->
 <div class="container">
   <div class="row">
@@ -31,6 +36,9 @@
         <button class="btn btn-outline-dark" (click)="toggleForm()">
           Edit Item
         </button>
+        <button class="add-to-cart btn btn-outline-dark" (click)="addToCart(theMerchandise, user)">
+						Add to cart
+				</button>
         <div *ngIf="isFormShowing" class="edit">
           <label>Name</label>
           <input [(ngModel)]="theUpdate.name" type="text" name="name">
@@ -78,5 +86,3 @@
     </div>
     <!-- /.col-lg-9 -->
   </div>
-</div>
-<!-- /.container -->
