@@ -28,13 +28,20 @@ export class NavBarComponent implements OnInit {
 
   title = 'app';
 
+  search: String = '';
+
   form: Boolean = true;
   theMerchandise: any = {};
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private authService: AuthService,
-    private myRouter: Router, private route: ActivatedRoute, private merchandiseService: MerchandiseService) {
+  constructor(iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer,
+    private authService: AuthService,
+    private myRouter: Router,
+    private route: ActivatedRoute,
+    private merchandiseService: MerchandiseService,
+  ) {
     iconRegistry.addSvgIcon(
       'cart',
-    sanitizer.bypassSecurityTrustUrl('assets/cart.svg'));
+      sanitizer.bypassSecurityTrustUrl('assets/cart.svg'));
   }
 
   // unnecessary
@@ -62,8 +69,8 @@ export class NavBarComponent implements OnInit {
         const theID = theParams['id'];
         this.getTheItem(theID);
       });
-
   }
+
 
   logout() {
     this.authService.logout()

@@ -1,5 +1,11 @@
-<input type="text" [(ngModel)]="search" (keyup)="filterMerchandise()">
+<h3>SEARCH</h3>
+<input placeholder="Search By Product Name" [(ngModel)]="search" (keyup)="filterMerchandise()">
 
 <div *ngFor="let merchandise of resultsArray">
   {{merchandise.name}}
+  <img [src]="merchandise.picture" alt="">
 </div>
+
+<!-- <div *ngFor="let merchandise of resultsArray">
+  <app-merchandise-list></app-merchandise-list>
+</div> -->
