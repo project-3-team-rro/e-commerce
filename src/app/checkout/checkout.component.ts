@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../services/auth.service';
@@ -13,7 +14,9 @@ import { MerchandiseListComponent } from '../merchandise-list/merchandise-list.c
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  
 @Input() grandTotal: any; 
+
 user: any;
 theMerchandise: any = {};
 theUpdate: any = {};
