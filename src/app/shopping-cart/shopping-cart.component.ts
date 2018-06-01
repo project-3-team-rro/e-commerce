@@ -142,4 +142,12 @@ updateTotal(){
       found.realQuantity.inde(name);
   }
 
+  sendToCheckout() {
+    this.myCartService.cartForCheckout = this.quantityProduct;
+    console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-', this.quantityProduct);
+    this.myCartService.cartTotalPrice = this.grandTotal;
+    this.myRoute.navigate(['/checkout']);
+
+  }
+
 }

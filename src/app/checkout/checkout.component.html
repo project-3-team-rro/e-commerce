@@ -108,6 +108,16 @@
   <body>
   
   <h2>  Checkout</h2>
+  <h1>{{cartService.cartTotalPrice}}</h1>
+<h2>{{theFirst.name}}</h2>
+
+
+<div *ngFor = "let product of theCart">
+
+  <p>one product</p>
+  <p>{{product.name}}</p>
+  <p>{{product.price}}</p>
+</div>
   
   <div class="row">
     <div class="col-75">
@@ -175,11 +185,11 @@
     </div>
     <div class="col-25">
       <div class="container">
-        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{cartQuantity}}</b></span></h4>
+        <!-- <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{cartQuantity}}</b></span></h4>
         
         <p><a href="#">{{oneProduct.name}}</a> <span class="price">{{oneProduct.price}}</span></p>
         <hr>
-        <p>Total <span class="price" style="color:black"><b>{{grandTotal}}</b></span></p>
+        <p>Total <span class="price" style="color:black"><b>{{grandTotal}}</b></span></p> -->
       </div>
     </div>
   </div>

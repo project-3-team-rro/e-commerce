@@ -13,10 +13,12 @@ import { MerchandiseListComponent } from '../merchandise-list/merchandise-list.c
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-@Input() grandTotal: any;  
+@Input() grandTotal: any; 
 user: any;
 theMerchandise: any = {};
 theUpdate: any = {};
+theCart = [];
+theFirst: any;
 
   constructor(private authService: AuthService,
     private cartService: CartService,
@@ -26,6 +28,9 @@ theUpdate: any = {};
 
 
   ngOnInit() {
+    this.theCart = this.cartService.cartForCheckout;
+    console.log('=-=-4568987654567898', this.theCart);
+    this.theFirst = this.theCart[0];
     // from here
     this.authService.isLoggedIn()
       .toPromise()
@@ -41,7 +46,7 @@ theUpdate: any = {};
     this.route.params
       .subscribe(theParams => {
         const theID = theParams['id'];
-        this.getTheItem(theID);
+        // this.getTheItem(theID);
       });
     this.authService.isLoggedIn()
       .toPromise()
@@ -60,6 +65,7 @@ theUpdate: any = {};
 
 
   sendToCart() {
+
 
   }
 

@@ -39,10 +39,10 @@
     <ul class="nav navbar-nav navbar-right">
         <li><a [routerLink]="['/signup']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li *ngIf="user">
+        <li *ngIf="authService.currentUser">
             <button (click)="logout()"> logout </button>
            <p>
-              Welcome, {{ user.username }}
+              Welcome, {{ authService.currentUser.username }}
            </p> 
         </li>
         <li>

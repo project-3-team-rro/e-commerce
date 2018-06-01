@@ -64,6 +64,7 @@ export class NavBarComponent implements OnInit {
     this.authService.isLoggedIn()
       .toPromise()
       .then((response) => {
+        console.log('qqqqqqqQQQQqqqqqQQQQqqqQQ', response);
         // don't forget to declare user up!
         this.user = response;
         this.cartService.getTheCartContent(this.authService.currentUser._id)
