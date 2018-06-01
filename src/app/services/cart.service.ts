@@ -8,7 +8,8 @@ import { Http } from '@angular/http';
 @Injectable()
 export class CartService {
   private itemsInCartSubject: BehaviorSubject<Merchandise[]> = new BehaviorSubject([]);
-  private itemsInCart: Merchandise[] = [];
+  public cartForCheckout = [];
+  public cartTotalPrice: Number;
 
   constructor(private myHttp: Http) {
     // this.itemsInCartSubject.subscribe(_ => this.itemsInCart = _);
@@ -29,11 +30,11 @@ export class CartService {
       .then(res => res.json());
   }
 
-  public removeFromCart(item: Merchandise) {
-    const currentItems = [...this.itemsInCart];
-    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
-    this.itemsInCartSubject.next(itemsWithoutRemoved);
-  }
+  // public removeFromCart(item: Merchandise) {
+  //   const currentItems = [...this.itemsInCart];
+  //   const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
+  //   this.itemsInCartSubject.next(itemsWithoutRemoved);
+  // }
 
   public getItems(): Observable<Merchandise[]> {
     return this.itemsInCartSubject.asObservable();
